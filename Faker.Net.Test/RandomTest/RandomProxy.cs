@@ -8,7 +8,7 @@ namespace Faker.Net.Test.RandomTest
 {
     public class RandomProxy
     {
-        private System.Random random;
+        private static System.Random random;
         public int CurrentValue { get; private set; }
 
         public RandomProxy()
@@ -19,6 +19,13 @@ namespace Faker.Net.Test.RandomTest
         public int Next(int maxValue)
         {
             var r = random.Next(maxValue);
+            this.CurrentValue = r;
+            return r;
+        }
+
+        public int Next()
+        {
+            var r = random.Next(0, 100);
             this.CurrentValue = r;
             return r;
         }
