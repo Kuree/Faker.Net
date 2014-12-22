@@ -8,11 +8,10 @@ namespace Faker.Net.Random
 {
     internal class Selector
     {
-        private static System.Random random = new System.Random();
-
         public static T GetRandomItemFromList<T>(IList<T> list)
         {
-            return list[random.Next(list.Count)];
+            if (list == null || list.Count == 0) return default(T);
+            return list[RandomProxy.Next(list.Count)];
         }
     }
 }

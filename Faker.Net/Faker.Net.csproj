@@ -45,6 +45,7 @@
     <Compile Include="Locales\LocaleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Random\RandomFactory.cs" />
+    <Compile Include="Random\RandomProxy.cs" />
     <Compile Include="Random\Selector.cs" />
   </ItemGroup>
   <ItemGroup />
