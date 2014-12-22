@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faker.Net.Locales
+namespace Faker.Locales
 {
     public enum LocaleType
     {

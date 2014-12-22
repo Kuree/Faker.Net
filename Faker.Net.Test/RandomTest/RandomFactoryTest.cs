@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Faker.Net.Random;
+using Faker.Random;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -12,8 +12,7 @@ namespace Faker.Net.Test.RandomTest
         [TestMethod]
         public void TestRandomSelection()
         {
-            RandomProxy random = new RandomProxy();
-            int i = random.Next();
+            int i = RandomProxy.Next();
             DummyClass d = new DummyClass(i);
             string format = @"#{Test1} #{Test2}";
             var r = new Random.RandomFactory(format, d);
@@ -23,8 +22,7 @@ namespace Faker.Net.Test.RandomTest
         [TestMethod]
         public void TestRandomFillin()
         {
-            RandomProxy random = new RandomProxy();
-            int i = random.Next();
+            int i = RandomProxy.Next();
             DummyClass d = new DummyClass(i);
             string format = @"#{Test1} #{Test2}";
             var r = new Random.RandomFactory(format, d);
@@ -34,8 +32,7 @@ namespace Faker.Net.Test.RandomTest
         [TestMethod]
         public void TestNextMethod()
         {
-            RandomProxy random = new RandomProxy();
-            int i = random.Next();
+            int i = RandomProxy.Next();
             DummyClass d = new DummyClass(i);
             string format = @"#{Test1} #{Test2}";
             var r = new Random.RandomFactory(format, d);

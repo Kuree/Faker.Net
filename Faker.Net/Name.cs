@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Faker.Net.Locales;
+using Faker.Locales;
 
-namespace Faker.Net
+namespace Faker
 {
     public class Name : FakerBase
     {

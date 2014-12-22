@@ -7,7 +7,7 @@
     <ProjectGuid>{69E1708F-61CD-4A67-B1D2-7D32EEF78C4E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Faker.Net</RootNamespace>
+    <RootNamespace>Faker</RootNamespace>
     <AssemblyName>Faker.Net</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

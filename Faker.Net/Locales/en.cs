@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faker.Net.Locales
+namespace Faker.Locales
 {
     internal class En : Locale
     {
@@ -53,6 +53,18 @@ namespace Faker.Net.Locales
                                     "side",
                                     "shire"};
             }
+        }
+
+        public override string[] CityNameFormat
+        {
+            get
+            {
+                return new string[] {
+                                    "#{CityPrefix} @{FirstName}#{CitySuffix}",
+                                    "#{CityPrefix} @{FirstName}",
+                                    "@{FirstName}#{CitySuffix}",
+                                    "@{FirstName}#{CitySuffix}"};
+            }   
         }
 
         public override string[] Country

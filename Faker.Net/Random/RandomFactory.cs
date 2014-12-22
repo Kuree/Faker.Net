@@ -7,29 +7,51 @@ using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace Faker.Net.Random
+namespace Faker.Random
 {
     internal class RandomFactory
     {
         private Object obj;
-        private string format;
         private const string groupName = "propertyName";
-
-        internal RandomFactory(string format, Object obj)
+        private const string methodName = "methodName";
+        
+        internal RandomFactory(Object obj)
         {
-            this.format = format;
             this.obj = obj;
         }
 
-        internal string Next<T>(FormatType type = FormatType.Property)
+        internal string Next<T>(string format, FormatType type = FormatType.Other)
         {
-            return FillInRandomData<T>(this.format, this.obj, type);
+            return FillInRandomData<T>(format, this.obj, type);
         }
 
-        internal string FillInRandomData<T>(string format,  Object obj, FormatType type = FormatType.Property)
+        private string FillInRandomData<T>(string format,  Object obj, FormatType type = FormatType.Other)
         {
-            string result = format;
-            string pattern = type == FormatType.Property ? @"\#\{(?<" + groupName + @">\w+)\}" : ""; // Need to add number support
+            if (type == FormatType.Other)
+            {
+                string result = format;
+                string pattern = @"\#\{(?<" + groupName + @">\w+)\}";
+                return FillInRandomDataFromProperty<T>(format, obj, type, ref result, pattern);
+            }
+            else
+            {
+                return this.FillInRandomDataFromNumber(format);
+            }
+        }
+
+        private string FillInRandomDataFromNumber(string format, char symbol = '#')
+        {
+            var result = format.ToCharArray();
+            for(int i = 0; i < result.Length; i++)
+            {
+                if (result[i] == symbol)
+                    result[i] = (char)Random.RandomProxy.Next(10);
+            }
+            return new string(result);
+        }
+
+        private string FillInRandomDataFromProperty<T>(string format, Object obj, FormatType type, ref string result, string pattern)
+        {
             Regex regex = new Regex(pattern);
             var matches = regex.Matches(format);
             if (matches.Count > 0)
@@ -37,14 +59,14 @@ namespace Faker.Net.Random
                 foreach (Match match in matches)
                 {
                     string propertyName = match.Groups[groupName].Value;
-                    string replacePattern = type == FormatType.Property? string.Concat("#{", propertyName, "}") : "";
+                    string replacePattern = type == FormatType.Other ? string.Concat("#{", propertyName, "}") : "";
                     result = Regex.Replace(result, replacePattern, GetRandomItemFromProperty<T>(propertyName, obj).ToString());
                 }
             }
-            return result;
+            return FillInRandomDataFromNumber(result); // replace the special # symbol wih random number
         }
 
-        internal T GetRandomItemFromProperty<T>(string propertyName, Object obj, int index = -1)
+        private T GetRandomItemFromProperty<T>(string propertyName, Object obj, int index = -1)
         {
             T result = default(T);
             Type type = obj.GetType();
@@ -57,11 +79,18 @@ namespace Faker.Net.Random
             }
             return result;
         }
+
+        private T GetRandomItemFromMethod<T>(string methodName, Object obj)
+        {
+            Type type = obj.GetType();
+            var method = type.GetMethod(methodName);
+            return (T)method.Invoke(obj, null);
+        }
     }
 
     public enum FormatType
     {
         Number,
-        Property
+        Other
     }
 }

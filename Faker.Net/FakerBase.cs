@@ -1,11 +1,11 @@
-﻿using Faker.Net.Locales;
+﻿using Faker.Locales;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faker.Net
+namespace Faker
 {
     public class FakerBase
     {

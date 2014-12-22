@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Faker.Net.Locales;
+using Faker.Locales;
 using System.Web.Security;
 using System.Drawing;
-using Random = Faker.Net.Random;
+using Random = Faker.Random;
 
-namespace Faker.Net
+namespace Faker
 {
     public class Internet : FakerBase
     {
@@ -47,22 +47,32 @@ namespace Faker.Net
 
         public virtual string GetUserName()
         {
+            return this.GetUserName(Name.Default.GetFirstName(), Name.Default.GetLastName());
+        }
+
+        public virtual string GetUserName(string firstName, string lastName)
+        {
             switch (Random.RandomProxy.Next(3))
             {
                 case 0:
-                    return Name.Default.GetFirstName() + Random.RandomProxy.Next(100).ToString();
+                    return firstName + Random.RandomProxy.Next(100).ToString();
                 case 1:
-                    return string.Format("{0}{1}{2}", Name.Default.GetFirstName(), Random.Selector.GetRandomItemFromList<string>(new string[] { ".", "_" }),
-                        Name.Default.GetLastName());
+                    return string.Format("{0}{1}{2}", firstName, Random.Selector.GetRandomItemFromList<string>(new string[] { ".", "_" }),
+                        lastName);
                 default:
-                    return string.Format("{0}{1}{2}{3}", Name.Default.GetFirstName(), Random.Selector.GetRandomItemFromList<string>(new string[] { ".", "_" }),
-                        Name.Default.GetLastName(), Random.RandomProxy.Next(100));
+                    return string.Format("{0}{1}{2}{3}", firstName, Random.Selector.GetRandomItemFromList<string>(new string[] { ".", "_" }),
+                        lastName, Random.RandomProxy.Next(100));
             }
+        }
+
+        public virtual string GetEmail(string firstName, string lastName)
+        {
+            return this.GetUserName(firstName, lastName) + "@" + Random.Selector.GetRandomItemFromList<string>(locale.FreeEmailDomain);
         }
 
         public virtual string GetEmail()
         {
-            return this.GetUserName() + "@" + Random.Selector.GetRandomItemFromList<string>(locale.FreeEmailDomain);
+            return this.GetEmail(Name.Default.GetFirstName(), Name.Default.GetLastName());
         }
 
         public virtual string GetIP()

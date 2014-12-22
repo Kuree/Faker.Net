@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Faker.Net.Locales
+namespace Faker.Locales
 {
     internal abstract class Locale
     {
@@ -12,6 +12,7 @@ namespace Faker.Net.Locales
         //string[] DefaultCountry { get; }
         public abstract string[] CityPrefix { get; }
         public abstract string[] CitySuffix { get; }
+        public abstract string[] CityNameFormat { get; }
         public abstract string[] Country { get; }
         public abstract string[] CountryCode { get; }
         public abstract string[] TimeZone { get; }
