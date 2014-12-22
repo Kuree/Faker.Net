@@ -19,6 +19,13 @@ namespace Faker.Net.Random
             return r;
         }
 
+        public static int Next(int minValue, int maxValue)
+        {
+            var r = random.Next(minValue, maxValue);
+            CurrentValue = r;
+            return r;
+        }
+
         public static int Next()
         {
             var r = random.Next(0, 100);

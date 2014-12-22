@@ -32,6 +32,8 @@ namespace Faker.Net.Locales
 
         // Internet
         public abstract string[] AvatarURL { get; }
+        public abstract string[] FreeEmailDomain { get; }
+        public abstract string[] DomainSuffix { get; }
 
         
         

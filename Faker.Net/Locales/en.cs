@@ -1064,6 +1064,8 @@ namespace Faker.Net.Locales
 
         #endregion
 
+        // BS part need to be impplemented
+
         #region Name
         public override string[] FirstName
         {
@@ -4614,6 +4616,21 @@ namespace Faker.Net.Locales
             }       
         }
 
+        #endregion
+
+        #region Internet
+
+        public override string[] FreeEmailDomain
+        {
+            get
+            {
+                return new string[] {
+                                    "gmail.com",
+                                    "yahoo.com",
+                                    "hotmail.com"};
+            }
+        }
+
         public override string[] AvatarURL
         {
             get
@@ -5885,24 +5902,23 @@ namespace Faker.Net.Locales
                                     "vikasvinfotech/128.jpg",
                                     "urrutimeoli/128.jpg",
                                     "areandacom/128.jpg"};
-            }   
+            }
         }
 
-        #endregion
-
-        // BS part need to be impplemented
-
-        #region Get Randoms
-        public const string CompanyNameFormat = "";
-
-        public virtual string GetCompanyName()
+        public override string[] DomainSuffix
         {
-            return "";
+            get
+            {
+                return new string[] {
+                                    "com",
+                                    "biz",
+                                    "info",
+                                    "name",
+                                    "net",
+                                    "org"};
+            }
         }
-
-        
-
-
         #endregion
+
     }
 }
