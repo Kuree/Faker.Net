@@ -10,16 +10,6 @@ namespace Faker.Net.Test.RandomTest
     public class RandomFactoryTest
     {
         [TestMethod]
-        public void TestFormatRecognization()
-        {
-            string format = @"#{test1} #{test2}";
-            var r = new Random.RandomFactory(format, null);
-            var result = r.ReadReadFormat(format);
-            Assert.AreEqual("test1", result[0]);
-            Assert.AreEqual("test2", result[1]);
-        }
-
-        [TestMethod]
         public void TestRandomSelection()
         {
             RandomProxy random = new RandomProxy();
@@ -27,10 +17,30 @@ namespace Faker.Net.Test.RandomTest
             DummyClass d = new DummyClass(i);
             string format = @"#{Test1} #{Test2}";
             var r = new Random.RandomFactory(format, d);
-            var result = r.GetRandomItemFromProperty<int>("Test1");
-            Debug.Write(result);
+            var result = r.GetRandomItemFromProperty<int>("Test1", d);
         }
 
+        [TestMethod]
+        public void TestRandomFillin()
+        {
+            RandomProxy random = new RandomProxy();
+            int i = random.Next();
+            DummyClass d = new DummyClass(i);
+            string format = @"#{Test1} #{Test2}";
+            var r = new Random.RandomFactory(format, d);
+            var result = r.FillInRandomData<int>(format, d);
+        }
+
+        [TestMethod]
+        public void TestNextMethod()
+        {
+            RandomProxy random = new RandomProxy();
+            int i = random.Next();
+            DummyClass d = new DummyClass(i);
+            string format = @"#{Test1} #{Test2}";
+            var r = new Random.RandomFactory(format, d);
+            var result = r.Next<int>();
+        }
         public class DummyClass
         {
             public int[] Test1 { get; set; }
@@ -40,7 +50,7 @@ namespace Faker.Net.Test.RandomTest
                 List<int> list = new List<int>(i);
                 for (int m = 0; m < i; m++)
                 {
-                    list.Add(m << i);
+                    list.Add(i << m);
                 }
                 this.Test1 = list.ToArray();
                 list = new List<int>(i);
