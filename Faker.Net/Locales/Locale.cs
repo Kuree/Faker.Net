@@ -9,7 +9,6 @@ namespace Faker.Net.Locales
     internal abstract class Locale
     {
         public abstract string Title { get; }
-        public abstract LocaleType LocaleType { get; }
         //string[] DefaultCountry { get; }
         public abstract string[] CityPrefix { get; }
         public abstract string[] CitySuffix { get; }
@@ -31,6 +30,10 @@ namespace Faker.Net.Locales
         public abstract string[] NamePrefix { get; }
         public abstract string[] NameSuffix { get; }
 
+        // Internet
+        public abstract string[] AvatarURL { get; }
+
+        
         
     }
 }
