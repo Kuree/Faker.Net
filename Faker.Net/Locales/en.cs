@@ -80,6 +80,16 @@ namespace Faker.Locales
             }   
         }
 
+        public override string[] StreetSuffix
+        {
+            get
+            {
+                return new string[] {
+                                    "@{Name.GetFirstName}#{StreetSuffix}",
+                                    "@{Name.GetLastName}#{StreetSuffix}"};
+            }   
+        }
+
         public override string[] SecondaryStreetNameFormat
         {
             get

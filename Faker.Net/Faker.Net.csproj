@@ -52,10 +52,15 @@
     <Compile Include="Image.cs" />
     <Compile Include="Internet.cs" />
     <Compile Include="Locales\En.cs" />
+    <Compile Include="Locales\En_BORK.cs" />
+    <Compile Include="Locales\En_CA.cs" />
+    <Compile Include="Locales\En_GB.cs" />
+    <Compile Include="Locales\EN_IND.cs" />
     <Compile Include="Locales\Locale.cs" />
     <Compile Include="Locales\LocaleFactory.cs" />
     <Compile Include="Locales\LocaleType.cs" />
     <EmbeddedResource Include="Locales\Resources\Finance.json" />
+    <Compile Include="Locales\En_Au.cs" />
     <Compile Include="Lorem.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="PhoneNumber.cs" />
