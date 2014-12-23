@@ -6135,5 +6135,168 @@ namespace Faker.Locales
         }
         #endregion
 
+        #region Hacker
+        public override string[] HackerAbbreviation
+        {
+            get
+            {
+                return new string[] {
+                                    "TCP",
+                                    "HTTP",
+                                    "SDD",
+                                    "RAM",
+                                    "GB",
+                                    "CSS",
+                                    "SSL",
+                                    "AGP",
+                                    "SQL",
+                                    "FTP",
+                                    "PCI",
+                                    "AI",
+                                    "ADP",
+                                    "RSS",
+                                    "XML",
+                                    "EXE",
+                                    "COM",
+                                    "HDD",
+                                    "THX",
+                                    "SMTP",
+                                    "SMS",
+                                    "USB",
+                                    "PNG",
+                                    "SAS",
+                                    "IB",
+                                    "SCSI",
+                                    "JSON",
+                                    "XSS",
+                                    "JBOD"};
+            }
+        }
+
+        public override string[] HackerAdjective
+        {
+            get
+            {
+                return new string[] {
+                                    "auxiliary",
+                                    "primary",
+                                    "back-end",
+                                    "digital",
+                                    "open-source",
+                                    "virtual",
+                                    "cross-platform",
+                                    "redundant",
+                                    "online",
+                                    "haptic",
+                                    "multi-byte",
+                                    "bluetooth",
+                                    "wireless",
+                                    "1080p",
+                                    "neural",
+                                    "optical",
+                                    "solid state",
+                                    "mobile"};
+            }
+        }
+
+        public override string[] HackerIngVerb
+        {
+            get
+            {
+                return new string[] {
+                                    "backing up",
+                                    "bypassing",
+                                    "hacking",
+                                    "overriding",
+                                    "compressing",
+                                    "copying",
+                                    "navigating",
+                                    "indexing",
+                                    "connecting",
+                                    "generating",
+                                    "quantifying",
+                                    "calculating",
+                                    "synthesizing",
+                                    "transmitting",
+                                    "programming",
+                                    "parsing"};
+            }
+        }
+
+        public override string[] HackerNoun
+        {
+            get
+            {
+                return new string[] {
+                                    "driver",
+                                    "protocol",
+                                    "bandwidth",
+                                    "panel",
+                                    "microchip",
+                                    "program",
+                                    "port",
+                                    "card",
+                                    "array",
+                                    "interface",
+                                    "system",
+                                    "sensor",
+                                    "firewall",
+                                    "hard drive",
+                                    "pixel",
+                                    "alarm",
+                                    "feed",
+                                    "monitor",
+                                    "application",
+                                    "transmitter",
+                                    "bus",
+                                    "circuit",
+                                    "capacitor",
+                                    "matrix"};
+            }
+        }
+
+        public override string[] HackerVerb
+        {
+            get
+            {
+                return new string[] {
+                                    "back up",
+                                    "bypass",
+                                    "hack",
+                                    "override",
+                                    "compress",
+                                    "copy",
+                                    "navigate",
+                                    "index",
+                                    "connect",
+                                    "generate",
+                                    "quantify",
+                                    "calculate",
+                                    "synthesize",
+                                    "input",
+                                    "transmit",
+                                    "program",
+                                    "reboot",
+                                    "parse"};
+            }
+        }
+
+        public override string[] HackerPhraseFormat
+        {
+            get
+            {
+                return new string[] {
+                                  "If we #{{HackerVerb}} the #{{HackerNoun}}, we can get to the #{{HackerAbbreviation}} #{{HackerNoun}} through the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}!",
+                                  "We need to #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}!",
+                                  "Try to #{{HackerVerb}} the #{{HackerAbbreviation}} #{{HackerNoun}}, maybe it will #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerNoun}}!",
+                                  "You can't #{{HackerVerb}} the #{{HackerNoun}} without #{{HackerIngVerb}} the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}!",
+                                  "Use the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}, then you can #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerNoun}}!",
+                                  "The #{{HackerAbbreviation}} #{{HackerNoun}} is down, #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerNoun}} so we can #{{HackerVerb}} the #{{HackerAbbreviation}} #{{HackerNoun}}!",
+                                  "#{{HackerIngVerb}} the #{{HackerNoun}} won't do anything, we need to #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}!",
+                                  "I'll #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}, that should #{{HackerNoun}} the #{{HackerAbbreviation}} #{{HackerNoun}}!"};
+            }
+        }
+        #endregion
+
     }
 }

@@ -53,6 +53,14 @@ namespace Faker.Locales
         // You need to use dynamic to resolve it as well.
         public abstract Dictionary<string, Object> Currency { get; }
         
+
+        // Hacker
+        public abstract string[] HackerNoun { get; }
+        public abstract string[] HackerVerb { get; }
+        public abstract string[] HackerAdjective { get; }
+        public abstract string[] HackerAbbreviation { get; }
+        public abstract string[] HackerIngVerb { get; }
+        public abstract string[] HackerPhraseFormat { get; }
         
     }
 }
