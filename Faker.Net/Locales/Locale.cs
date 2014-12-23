@@ -64,6 +64,9 @@ namespace Faker.Locales
 
         // Lorem
         public abstract string[] LoremWord { get; }
+
+        // Phone number
+        public abstract string[] PhoneNumberFormat { get; }
         
     }
 }

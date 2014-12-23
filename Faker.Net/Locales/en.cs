@@ -6298,6 +6298,7 @@ namespace Faker.Locales
         }
         #endregion
 
+        #region Lorem
         public override string[] LoremWord
         {
             get
@@ -6553,8 +6554,39 @@ namespace Faker.Locales
                                     "asperiores",
                                     "repellat"};
             }
-            
+
         }
+        #endregion
+
+        #region Phone Number
+        public override string[] PhoneNumberFormat
+        {
+            get
+            {
+                return new string[] {
+                                    "###-###-####",
+                                    "(###) ###-####",
+                                    "1-###-###-####",
+                                    "###.###.####",
+                                    "###-###-####",
+                                    "(###) ###-####",
+                                    "1-###-###-####",
+                                    "###.###.####",
+                                    "###-###-#### x###",
+                                    "(###) ###-#### x###",
+                                    "1-###-###-#### x###",
+                                    "###.###.#### x###",
+                                    "###-###-#### x####",
+                                    "(###) ###-#### x####",
+                                    "1-###-###-#### x####",
+                                    "###.###.#### x####",
+                                    "###-###-#### x#####",
+                                    "(###) ###-#### x#####",
+                                    "1-###-###-#### x#####",
+                                    "###.###.#### x#####"};
+            }
+        }
+        #endregion
 
     }
 }
