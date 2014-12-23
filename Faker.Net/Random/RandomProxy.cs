@@ -37,5 +37,10 @@ namespace Faker.Random
         {
             return random.NextDouble() > 0.5;
         }
+
+        public static Single NextSingle()
+        {
+            return Convert.ToSingle(random.NextDouble());
+        }
     }
 }

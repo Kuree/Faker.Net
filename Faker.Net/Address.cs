@@ -40,7 +40,63 @@ namespace Faker
 
         public string GetStreetName()
         {
-            return null;
+            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.StreetNameFormat));
+        }
+        public string GetStreetAddress()
+        {
+            return this.GetStreetAddress(false);
+        }
+
+        public string GetStreetAddress(bool useFullAddress)
+        {
+            string numberPattern = string.Concat(Enumerable.Repeat("#", Random.RandomProxy.Next(5)));
+            string streetName = GetStreetName();
+            return useFullAddress ? factory.Next<string>(numberPattern, Random.FormatType.Number) + " " + streetName + " " + GetSecondStreetAddress() : factory.Next<string>(numberPattern, Random.FormatType.Number) + " " + streetName;
+        }
+
+        public string GetSecondStreetAddress()
+        {
+            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.SecondaryStreetName));
+        }
+
+        public string GetCounty()
+        {
+            throw new NotImplementedException("Waiting for data");
+        }
+
+        public string GetCountry()
+        {
+            return Random.Selector.GetRandomItemFromList<string>(locale.Country);
+        }
+
+        public string GetCountryCode()
+        {
+            return Random.Selector.GetRandomItemFromList<string>(locale.CountryCode);
+        }
+
+        public string GetState()
+        {
+            return Random.Selector.GetRandomItemFromList<string>(locale.State);
+        }
+
+        public string GetStateAbbr()
+        {
+            return Random.Selector.GetRandomItemFromList<string>(locale.State);
+        }
+
+        public Single GetLatitude()
+        {
+            return Random.RandomProxy.NextSingle();
+        }
+
+        public Single GetLongitute()
+        {
+            return Random.RandomProxy.NextSingle();
+        }
+
+        public string GetZipCode()
+        {
+            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.PostCode));
         }
     }
 }

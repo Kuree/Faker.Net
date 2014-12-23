@@ -39,7 +39,8 @@ namespace Faker.Random
             {
                 string result = format;
                 string pattern = @"\#\{(?<" + propertyName + @">\w+)\}";
-                return FillInRandomDataFromProperty<T>(format, obj, ref result, pattern);
+                var withProperty =  FillInRandomDataFromProperty<T>(format, obj, ref result, pattern);
+                return this.FillInRandomDataFromMethod(withProperty);
             }
             else
             {

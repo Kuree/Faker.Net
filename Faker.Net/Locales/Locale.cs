@@ -13,9 +13,15 @@ namespace Faker.Locales
         public abstract string[] CityPrefix { get; }
         public abstract string[] CitySuffix { get; }
         public abstract string[] CityNameFormat { get; }
+        public abstract string[] StreetNameFormat { get; }
+        public abstract string[] SecondaryStreetNameFormat { get; }
+        public abstract string[] SecondaryStreetName { get; }
         public abstract string[] Country { get; }
         public abstract string[] CountryCode { get; }
+        public abstract string[] State { get; }
+        public abstract string[] StateAbbr { get; }
         public abstract string[] TimeZone { get; }
+        public abstract string[] PostCode { get; }
 
         public abstract string[] CompanySuffix { get; }
         public abstract string[] CompanyAdjective { get; }
