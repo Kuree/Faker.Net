@@ -20,7 +20,7 @@ namespace Faker.Locales
                     PropertyInfo info = type.GetProperty("LocaleType", BindingFlags.Static | BindingFlags.Public);
                     if (info != null)
                     {
-                        if ((LocaleType)info.GetValue(null) == localType)
+                        if ((LocaleType)info.GetValue(null, null) == localType)
                         {
                             return Activator.CreateInstance(type) as Locale;
                         }

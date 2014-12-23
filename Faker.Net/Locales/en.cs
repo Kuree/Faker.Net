@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.IO;
+using System.Diagnostics;
 
 namespace Faker.Locales
 {
@@ -6095,6 +6098,39 @@ namespace Faker.Locales
                                     "name",
                                     "net",
                                     "org"};
+            }
+        }
+        #endregion
+
+        #region Finance
+        public override string[] AccountType
+        {
+            get
+            {
+                return new string[] { "Checking", "Savings", "Money Market", "Investment", "Home Loan", "Credit Card", "Auto Loan", "Personal Loan" };
+            }
+        }
+
+        public override string[] AccountTypeFormat
+        {
+            get { return new string[] { "#{AccountType} Account" }; }
+        }
+
+        public override string[] TransactionType
+        {
+            get { return new string[] { "deposit", "withdrawal", "payment", "invoice" }; }
+        }
+        
+        public override Dictionary<string, Object> Currency
+        {
+            get
+            {
+                var jsSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+                var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Faker.Locales.Resources.Finance.json");
+                stream.Position = 0;
+                var dic = jsSerializer.DeserializeObject(new StreamReader(stream).ReadToEnd());
+                Debug.WriteLine(dic.GetType().IsArray);
+                return dic as Dictionary<string, Object>;
             }
         }
         #endregion

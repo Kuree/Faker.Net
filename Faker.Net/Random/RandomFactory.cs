@@ -104,7 +104,7 @@ namespace Faker.Random
             var property = type.GetProperties().FirstOrDefault(entry => entry.Name == propertyName);
             if(property != null)
             {
-                var values = property.GetValue(obj) as IList<T>;
+                var values = property.GetValue(obj, null) as IList<T>;
                 if (values != null)
                     return index == -1? Random.Selector.GetRandomItemFromList<T>(values) : values[index];
             }

@@ -23,12 +23,14 @@ namespace Faker.Locales
         public abstract string[] TimeZone { get; }
         public abstract string[] PostCode { get; }
 
+        // Company
         public abstract string[] CompanySuffix { get; }
         public abstract string[] CompanyAdjective { get; }
         public abstract string[] CompanyDescriptor { get; }
         public abstract string[] CompanyNoun { get; }
         public abstract string[] CompanyNameFormat { get; }
 
+        // Name
         public abstract string[] FirstName { get; }
         public abstract string[] LastName { get; }
         public abstract string[] FemaleFirstName { get; }
@@ -43,6 +45,13 @@ namespace Faker.Locales
         public abstract string[] FreeEmailDomain { get; }
         public abstract string[] DomainSuffix { get; }
 
+        // Finance
+        public abstract string[] AccountType { get; }
+        public abstract string[] AccountTypeFormat { get; }
+        public abstract string[] TransactionType { get; }
+        // Use Object because the default JSON paser's bug. 
+        // You need to use dynamic to resolve it as well.
+        public abstract Dictionary<string, Object> Currency { get; }
         
         
     }

@@ -13,5 +13,11 @@ namespace Faker.Random
             if (list == null || list.Count == 0) return default(T);
             return list[RandomProxy.Next(list.Count)];
         }
+
+        public static T GetRandomKeyFromDictionary<T, D>(IDictionary<T, D> dic)
+        {
+            var keys = dic.Keys.ToArray();
+            return GetRandomItemFromList<T>(keys);
+        }
     }
 }

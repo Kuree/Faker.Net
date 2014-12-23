@@ -41,6 +41,24 @@ namespace Faker.Random
             return Next(0, maxValue);
         }
 
+        public static decimal Next(decimal min, decimal max)
+        {
+            var d = new decimal(NextInt32(),
+                        NextInt32(),
+                        Next(0x204FCE5E),
+                        false,
+                        0);
+
+            return min + (max - min) * d;
+        }
+
+        private static int NextInt32()
+        {
+            byte[] buf = new byte[4];
+            random.NextBytes(buf);
+            return BitConverter.ToInt32(buf, 0);
+        }
+
         public static int Next()
         {
             var r = random.Next(0, 100);
