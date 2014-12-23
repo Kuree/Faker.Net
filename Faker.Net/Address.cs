@@ -18,11 +18,6 @@ namespace Faker
 
         private Random.RandomFactory factory;
 
-        public string GetZipCode()
-        {
-            return this.factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(new string[] {"#####", "#####-####" }), Random.FormatType.Number);
-        }
-
         public string GetCityPrefix()
         {
             return Random.Selector.GetRandomItemFromList<string>(locale.CityPrefix);
@@ -49,7 +44,7 @@ namespace Faker
 
         public string GetStreetAddress(bool useFullAddress)
         {
-            string numberPattern = string.Concat(Enumerable.Repeat("#", Random.RandomProxy.Next(5)));
+            string numberPattern = new string('#', Random.RandomProxy.Next(5));
             string streetName = GetStreetName();
             return useFullAddress ? factory.Next<string>(numberPattern, Random.FormatType.Number) + " " + streetName + " " + GetSecondStreetAddress() : factory.Next<string>(numberPattern, Random.FormatType.Number) + " " + streetName;
         }

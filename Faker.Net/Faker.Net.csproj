@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="FakerBase.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="Internet.cs" />
     <Compile Include="Locales\En.cs" />
     <Compile Include="Locales\Locale.cs" />
