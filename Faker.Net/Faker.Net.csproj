@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="Company.cs" />
     <Compile Include="Date.cs" />
     <Compile Include="FakerBase.cs" />
     <Compile Include="Image.cs" />

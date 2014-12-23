@@ -27,6 +27,7 @@ namespace Faker.Locales
         public abstract string[] CompanyAdjective { get; }
         public abstract string[] CompanyDescriptor { get; }
         public abstract string[] CompanyNoun { get; }
+        public abstract string[] CompanyNameFormat { get; }
 
         public abstract string[] FirstName { get; }
         public abstract string[] LastName { get; }

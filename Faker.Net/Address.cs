@@ -81,12 +81,12 @@ namespace Faker
 
         public Single GetLatitude()
         {
-            return Random.RandomProxy.NextSingle();
+            return Random.RandomProxy.NextSingle() * 180 - 90;
         }
 
         public Single GetLongitute()
         {
-            return Random.RandomProxy.NextSingle();
+            return Random.RandomProxy.NextSingle() * 180 - 90;
         }
 
         public string GetZipCode()

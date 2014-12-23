@@ -1230,6 +1230,17 @@ namespace Faker.Locales
             }
         }
 
+        public override string[] CompanyNameFormat
+        {
+            get
+            {
+                return new string[] {
+                                    "@{Name.GetLastName} #{CompanySuffix}",
+                                    "@{Name.GetLastName}-@{Name.GetLastName}",
+                                    "@{Name.GetLastName}, @{Name.GetLastName} and @{Name.GetLastName}"};
+            }
+        }
+
         #endregion
 
         // BS part need to be impplemented
