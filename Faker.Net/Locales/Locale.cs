@@ -61,6 +61,9 @@ namespace Faker.Locales
         public abstract string[] HackerAbbreviation { get; }
         public abstract string[] HackerIngVerb { get; }
         public abstract string[] HackerPhraseFormat { get; }
+
+        // Lorem
+        public abstract string[] LoremWord { get; }
         
     }
 }

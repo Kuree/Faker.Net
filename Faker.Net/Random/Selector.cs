@@ -19,5 +19,19 @@ namespace Faker.Random
             var keys = dic.Keys.ToArray();
             return GetRandomItemFromList<T>(keys);
         }
+
+        public static T[] GetMultipleRandomItemsFromList<T>(IList<T> list, int count)
+        {
+            List<T> result = new List<T>(count);
+            for(int i = 0; i < list.Count; i++)
+            {
+                double p = ((double)count - (double)result.Count) / ((double)list.Count - i);
+                if (Random.RandomProxy.NextBool(p)) 
+                    result.Add(list[i]);
+                if (result.Count >= count)
+                    return result.ToArray();
+            }
+            return result.ToArray();
+        }
     }
 }

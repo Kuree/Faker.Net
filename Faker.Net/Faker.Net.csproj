@@ -56,6 +56,7 @@
     <Compile Include="Locales\LocaleFactory.cs" />
     <Compile Include="Locales\LocaleType.cs" />
     <EmbeddedResource Include="Locales\Resources\Finance.json" />
+    <Compile Include="Lorem.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Random\RandomFactory.cs" />

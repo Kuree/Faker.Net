@@ -80,5 +80,10 @@ namespace Faker.Random
         {
             return random.NextDouble() * maxValue;
         }
+
+        public static bool NextBool(double probability)
+        {
+            return random.NextDouble() < probability;
+        }
     }
 }
