@@ -6,18 +6,26 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Diagnostics;
+using Faker.Locales;
 
 namespace Faker.Random
 {
     internal class RandomFactory
     {
         private Object obj;
-        private const string groupName = "propertyName";
+        private LocaleType localeType;
+        private const string propertyName = "propertyName";
         private const string methodName = "methodName";
+
+        // Might have some other better way to do it
+        // For better performance and memory usage
+        private Dictionary<string, FakerBase> fakerDictionary;
         
-        internal RandomFactory(Object obj)
+        internal RandomFactory(Object obj, LocaleType type)
         {
             this.obj = obj;
+            this.localeType = type;
+            this.fakerDictionary = new Dictionary<string, FakerBase>();
         }
 
         internal string Next<T>(string format, FormatType type = FormatType.Other)
@@ -25,13 +33,13 @@ namespace Faker.Random
             return FillInRandomData<T>(format, this.obj, type);
         }
 
-        private string FillInRandomData<T>(string format,  Object obj, FormatType type = FormatType.Other)
+        internal string FillInRandomData<T>(string format,  Object obj, FormatType type = FormatType.Other)
         {
             if (type == FormatType.Other)
             {
                 string result = format;
-                string pattern = @"\#\{(?<" + groupName + @">\w+)\}";
-                return FillInRandomDataFromProperty<T>(format, obj, type, ref result, pattern);
+                string pattern = @"\#\{(?<" + propertyName + @">\w+)\}";
+                return FillInRandomDataFromProperty<T>(format, obj, ref result, pattern);
             }
             else
             {
@@ -50,23 +58,45 @@ namespace Faker.Random
             return new string(result);
         }
 
-        private string FillInRandomDataFromProperty<T>(string format, Object obj, FormatType type, ref string result, string pattern)
+        private string FillInRandomDataFromProperty<T>(string format, Object obj, ref string result, string pattern)
         {
-            Regex regex = new Regex(pattern);
-            var matches = regex.Matches(format);
+            var matches = Regex.Matches(format, pattern);
             if (matches.Count > 0)
             {
                 foreach (Match match in matches)
                 {
-                    string propertyName = match.Groups[groupName].Value;
-                    string replacePattern = type == FormatType.Other ? string.Concat("#{", propertyName, "}") : "";
-                    result = Regex.Replace(result, replacePattern, GetRandomItemFromProperty<T>(propertyName, obj).ToString());
+                    string name = match.Groups[propertyName].Value;
+                    string replacePattern = string.Concat("#{", name, "}");
+                    result = Regex.Replace(result, replacePattern, GetRandomItemFromProperty<T>(name, obj).ToString());
                 }
             }
             return FillInRandomDataFromNumber(result); // replace the special # symbol wih random number
         }
 
-        private T GetRandomItemFromProperty<T>(string propertyName, Object obj, int index = -1)
+        internal string FillInRandomDataFromMethod(string format)
+        {
+            string result = format;
+            string pattern = @"\@\{(?<" + methodName + @">[A-Za-z.]+)\}";
+            var matches = Regex.Matches(format, pattern);
+            if(matches.Count > 0)
+            {
+                foreach(Match match in matches)
+                {
+                    string fullNameSpaces = match.Groups[methodName].Value;
+                    string replacePattern = string.Concat("@{", fullNameSpaces, "}");
+                    string[] names = fullNameSpaces.Split('.');
+                    string[] namespaceArray = new string[names.Length - 1];
+                    Array.Copy(names, namespaceArray, names.Length - 1);
+                    string nameSpace = string.Join(".", namespaceArray);
+                    string methodname = names[names.Length - 1];
+                    FakerBase faker = this.GetFakerObjectFromName(nameSpace);
+                    result = Regex.Replace(result, replacePattern, GetRandomItemFromMethod<string>(methodname, faker));
+                }
+            }
+            return result;
+        }
+
+        internal T GetRandomItemFromProperty<T>(string propertyName, Object obj, int index = -1)
         {
             T result = default(T);
             Type type = obj.GetType();
@@ -80,12 +110,30 @@ namespace Faker.Random
             return result;
         }
 
-        private T GetRandomItemFromMethod<T>(string methodName, Object obj)
+        internal FakerBase GetFakerObjectFromName(string name)
+        {
+            if (this.fakerDictionary.ContainsKey(name))
+            {
+                return this.fakerDictionary[name];
+            }
+            else
+            {
+                // If it is the first time, create the FakerBase and add it to the dictionary
+                Type t = Assembly.GetExecutingAssembly().GetType("Faker." + name);
+                FakerBase faker = Activator.CreateInstance(t, new object[] { this.localeType }) as FakerBase;
+                this.fakerDictionary.Add(name, faker);
+                return faker;
+            }
+        }
+
+        private T GetRandomItemFromMethod<T>(string methodName, FakerBase obj)
         {
             Type type = obj.GetType();
             var method = type.GetMethod(methodName);
             return (T)method.Invoke(obj, null);
         }
+
+        
     }
 
     public enum FormatType

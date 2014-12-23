@@ -9,8 +9,8 @@ namespace Faker
 {
     public class Address : FakerBase
     {
-        public Address() : base() { this.factory = new Random.RandomFactory(this.locale); }
-        public Address(LocaleType type) : base(type) { this.factory = new Random.RandomFactory(this.locale); }
+        public Address() : this(LocaleType.en) { }
+        public Address(LocaleType type) : base(type) { this.factory = new Random.RandomFactory(this.locale, this.LocaleType); }
 
         // default static interface
         public static Address Default { get { return defaultValue; } }

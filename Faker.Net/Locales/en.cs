@@ -60,10 +60,10 @@ namespace Faker.Locales
             get
             {
                 return new string[] {
-                                    "#{CityPrefix} @{FirstName}#{CitySuffix}",
-                                    "#{CityPrefix} @{FirstName}",
-                                    "@{FirstName}#{CitySuffix}",
-                                    "@{FirstName}#{CitySuffix}"};
+                                    "#{CityPrefix} @{Name.GetFirstName}#{CitySuffix}",
+                                    "#{CityPrefix} @{Name.GetFirstName}",
+                                    "@{Name.FirstName}#{CitySuffix}",
+                                    "@{Name.FirstName}#{CitySuffix}"};
             }   
         }
 

@@ -14,8 +14,7 @@ namespace Faker.Net.Test.RandomTest
         {
             int i = RandomProxy.Next();
             DummyClass d = new DummyClass(i);
-            string format = @"#{Test1} #{Test2}";
-            var r = new Random.RandomFactory(format, d);
+            var r = new Random.RandomFactory(d, Locales.LocaleType.en);
             var result = r.GetRandomItemFromProperty<int>("Test1", d);
         }
 
@@ -25,7 +24,7 @@ namespace Faker.Net.Test.RandomTest
             int i = RandomProxy.Next();
             DummyClass d = new DummyClass(i);
             string format = @"#{Test1} #{Test2}";
-            var r = new Random.RandomFactory(format, d);
+            var r = new Random.RandomFactory(d, Locales.LocaleType.en);
             var result = r.FillInRandomData<int>(format, d);
         }
 
@@ -35,8 +34,24 @@ namespace Faker.Net.Test.RandomTest
             int i = RandomProxy.Next();
             DummyClass d = new DummyClass(i);
             string format = @"#{Test1} #{Test2}";
-            var r = new Random.RandomFactory(format, d);
-            var result = r.Next<int>();
+            var r = new Random.RandomFactory(d, Locales.LocaleType.en);
+            var result = r.Next<int>(format);
+        }
+
+        [TestMethod]
+        public void TestFakerBaseDictionary()
+        {
+            Name n = new Name();
+            Random.RandomFactory random = new RandomFactory(null, Locales.LocaleType.en);
+            Assert.AreEqual(n.GetType(), random.GetFakerObjectFromName("Name").GetType());
+        }
+
+        [TestMethod]
+        public void TestFakerFillIn()
+        {
+            string pattern = "@{Name.GetFirstName}";
+            Random.RandomFactory random = new RandomFactory(null, Locales.LocaleType.en);
+            var result = random.FillInRandomDataFromMethod(pattern);
         }
         public class DummyClass
         {

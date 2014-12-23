@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="LocaleTest\LocaleFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomTest\RandomFactoryTest.cs" />
   </ItemGroup>
