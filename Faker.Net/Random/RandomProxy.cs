@@ -26,6 +26,21 @@ namespace Faker.Random
             return r;
         }
 
+        public static long Next(long minValue, long maxValue)
+        {
+            // code taken from http://stackoverflow.com/questions/6651554/random-number-in-long-range-is-this-the-way
+            byte[] buf = new byte[8];
+            random.NextBytes(buf);
+            long longRand = BitConverter.ToInt64(buf, 0);
+
+            return (Math.Abs(longRand % (maxValue - minValue)) + minValue);
+        }
+
+        public static long Next(long maxValue)
+        {
+            return Next(0, maxValue);
+        }
+
         public static int Next()
         {
             var r = random.Next(0, 100);
@@ -41,6 +56,11 @@ namespace Faker.Random
         public static Single NextSingle()
         {
             return Convert.ToSingle(random.NextDouble());
+        }
+
+        public static Double NextDouble(double maxValue)
+        {
+            return random.NextDouble() * maxValue;
         }
     }
 }
