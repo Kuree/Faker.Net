@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69E1708F-61CD-4A67-B1D2-7D32EEF78C4E}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{B86EFB70-0370-4BD0-9577-DA8C855961DF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Faker</RootNamespace>
-    <AssemblyName>Faker.Net</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>Faker.Net.Example</RootNamespace>
+    <AssemblyName>Faker.Net.Example</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,9 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,35 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Address.cs" />
-    <Compile Include="Company.cs" />
-    <Compile Include="Date.cs" />
-    <Compile Include="FakerBase.cs" />
-    <Compile Include="Finance.cs" />
-    <Compile Include="Hacker.cs" />
-    <Compile Include="Helpers.cs" />
-    <Compile Include="Image.cs" />
-    <Compile Include="Internet.cs" />
-    <Compile Include="Locales\En.cs" />
-    <Compile Include="Locales\En_BORK.cs" />
-    <Compile Include="Locales\En_CA.cs" />
-    <Compile Include="Locales\En_GB.cs" />
-    <Compile Include="Locales\EN_IND.cs" />
-    <Compile Include="Locales\En_US.cs" />
-    <Compile Include="Locales\Locale.cs" />
-    <Compile Include="Locales\LocaleFactory.cs" />
-    <Compile Include="Locales\LocaleType.cs" />
-    <EmbeddedResource Include="Locales\Resources\Finance.json" />
-    <Compile Include="Locales\En_Au.cs" />
-    <Compile Include="Lorem.cs" />
-    <Compile Include="Name.cs" />
-    <Compile Include="PhoneNumber.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Random\RandomFactory.cs" />
-    <Compile Include="Random\RandomProxy.cs" />
-    <Compile Include="Random\Selector.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Faker.Net\Faker.Net.csproj">
+      <Project>{69e1708f-61cd-4a67-b1d2-7d32eef78c4e}</Project>
+      <Name>Faker.Net</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,7 +7,7 @@ namespace Faker.Locales
 {
     internal class EN_IND : En
     {
-        public new static LocaleType LocaleType { get { return Locales.LocaleType.en_IND; } }
+        public new static LocaleType LocaleType { get { return LocaleType.en_IND; } }
 
         public override string[] FirstName
         {

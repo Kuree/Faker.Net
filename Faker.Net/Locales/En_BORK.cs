@@ -7,7 +7,7 @@ namespace Faker.Locales
 {
     internal class En_BORK : En
     {
-        public new static LocaleType LocaleType { get { return Locales.LocaleType.en_BORK; } }
+        public new static LocaleType LocaleType { get { return LocaleType.en_BORK; } }
 
         public override string[] LoremWord
         {

@@ -62,14 +62,13 @@ namespace Faker.Random
         private string FillInRandomDataFromProperty<T>(string format, Object obj, ref string result, string pattern)
         {
             var matches = Regex.Matches(format, pattern);
-            if (matches.Count > 0)
+            while (matches.Count > 0)
             {
-                foreach (Match match in matches)
-                {
-                    string name = match.Groups[propertyName].Value;
-                    string replacePattern = string.Concat("#{", name, "}");
-                    result = Regex.Replace(result, replacePattern, GetRandomItemFromProperty<T>(name, obj).ToString());
-                }
+                Match match = matches[0];
+                string name = match.Groups[propertyName].Value;
+                result = result.Remove(match.Index, match.Length).Insert(match.Index, GetRandomItemFromProperty<T>(name, obj).ToString());
+                //result = Regex.Replace(result, replacePattern, GetRandomItemFromProperty<T>(name, obj).ToString());
+                matches = Regex.Matches(result, pattern);
             }
             return FillInRandomDataFromNumber(result); // replace the special # symbol wih random number
         }
@@ -79,20 +78,18 @@ namespace Faker.Random
             string result = format;
             string pattern = @"\@\{(?<" + methodName + @">[A-Za-z.]+)\}";
             var matches = Regex.Matches(format, pattern);
-            if(matches.Count > 0)
+            while (matches.Count > 0)
             {
-                foreach(Match match in matches)
-                {
-                    string fullNameSpaces = match.Groups[methodName].Value;
-                    string replacePattern = string.Concat("@{", fullNameSpaces, "}");
-                    string[] names = fullNameSpaces.Split('.');
-                    string[] namespaceArray = new string[names.Length - 1];
-                    Array.Copy(names, namespaceArray, names.Length - 1);
-                    string nameSpace = string.Join(".", namespaceArray);
-                    string methodname = names[names.Length - 1];
-                    FakerBase faker = this.GetFakerObjectFromName(nameSpace);
-                    result = Regex.Replace(result, replacePattern, GetRandomItemFromMethod<string>(methodname, faker));
-                }
+                Match match = matches[0];
+                string fullNameSpaces = match.Groups[methodName].Value;
+                string[] names = fullNameSpaces.Split('.');
+                string[] namespaceArray = new string[names.Length - 1];
+                Array.Copy(names, namespaceArray, names.Length - 1);
+                string nameSpace = string.Join(".", namespaceArray);
+                string methodname = names[names.Length - 1];
+                FakerBase faker = this.GetFakerObjectFromName(nameSpace);
+                result = result.Remove(match.Index, match.Length).Insert(match.Index, GetRandomItemFromMethod<string>(methodname, faker));
+                matches = Regex.Matches(result, pattern);
             }
             return result;
         }

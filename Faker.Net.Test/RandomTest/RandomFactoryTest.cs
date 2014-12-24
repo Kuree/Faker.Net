@@ -15,7 +15,7 @@ namespace Faker.Net.Test.RandomTest
         {
             int i = RandomProxy.Next();
             DummyClass d = new DummyClass(i);
-            var r = new Random.RandomFactory(d, Locales.LocaleType.en);
+            var r = new Random.RandomFactory(d, LocaleType.en);
             var result = r.GetRandomItemFromProperty<int>("Test1", d);
             Assert.IsTrue(Array.Exists(d.Test1, n => n == result));
         }
@@ -26,7 +26,7 @@ namespace Faker.Net.Test.RandomTest
             int m = RandomProxy.Next();
             DummyClass d = new DummyClass(m);
             string format = @"#{Test1} #{Test2}";
-            var r = new Random.RandomFactory(d, Locales.LocaleType.en);            
+            var r = new Random.RandomFactory(d, LocaleType.en);            
 
             for (int i = 0; i < 100000; i++)
             {
@@ -39,12 +39,12 @@ namespace Faker.Net.Test.RandomTest
         }
 
         [TestMethod]
-        public void TestNextMethod()
+        public void TestNextMethod1()
         {
             int m = RandomProxy.Next();
             DummyClass d = new DummyClass(m);
             string format = @"#{Test1} #{Test2}";
-            var r = new Random.RandomFactory(d, Locales.LocaleType.en);
+            var r = new Random.RandomFactory(d, LocaleType.en);
             for (int i = 0; i < 100000; i++)
             {
                 var result = r.Next<int>(format);
@@ -56,10 +56,25 @@ namespace Faker.Net.Test.RandomTest
         }
 
         [TestMethod]
+        public void TestNextMethod2()
+        {
+            int m = RandomProxy.Next(2, 100);
+            DummyClass d = new DummyClass(m);
+            string format = @"#{Test1} #{Test1}";
+            var r = new Random.RandomFactory(d, LocaleType.en);
+            var result = r.Next<int>(format);
+            string[] numbers = result.Split(' ');
+            Assert.AreEqual(numbers.Length, 2);
+            Assert.IsTrue(Array.Exists(d.Test1, n => n == int.Parse(numbers[0])));
+            Assert.IsTrue(Array.Exists(d.Test1, n => n == int.Parse(numbers[0])));
+            Assert.IsTrue(numbers[0] != numbers[1]);
+        }
+
+        [TestMethod]
         public void TestFakerBaseDictionary()
         {
             Name n = new Name();
-            Random.RandomFactory random = new RandomFactory(null, Locales.LocaleType.en);
+            Random.RandomFactory random = new RandomFactory(null, LocaleType.en);
             Assert.AreEqual(n.GetType(), random.GetFakerObjectFromName("Name").GetType());
         }
 
@@ -67,7 +82,7 @@ namespace Faker.Net.Test.RandomTest
         public void TestFakerFillIn()
         {
             string pattern = "@{Name.GetFirstName}";
-            Random.RandomFactory random = new RandomFactory(null, Locales.LocaleType.en);
+            Random.RandomFactory random = new RandomFactory(null, LocaleType.en);
             
             List<string> names = new List<string>();
             En en = new En();

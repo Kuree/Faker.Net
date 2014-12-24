@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AddressTests.cs" />
     <Compile Include="FinanceTests.cs" />
+    <Compile Include="HelpersTests.cs" />
     <Compile Include="LocaleTest\LocaleFactoryTest.cs" />
     <Compile Include="LocaleTest\En.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

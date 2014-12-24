@@ -12,7 +12,7 @@ namespace Faker.Locales
     internal class En : Locale
     {
         public override string Title { get { return "English"; } }
-        public static LocaleType LocaleType { get { return Locales.LocaleType.en; } }
+        public static LocaleType LocaleType { get { return LocaleType.en; } }
 
         #region Geography
 
@@ -65,8 +65,8 @@ namespace Faker.Locales
                 return new string[] {
                                     "#{CityPrefix} @{Name.GetFirstName}#{CitySuffix}",
                                     "#{CityPrefix} @{Name.GetFirstName}",
-                                    "@{Name.FirstName}#{CitySuffix}",
-                                    "@{Name.FirstName}#{CitySuffix}"};
+                                    "@{Name.GetFirstName}#{CitySuffix}",
+                                    "@{Name.GetFirstName}#{CitySuffix}"};
             }   
         }
 
