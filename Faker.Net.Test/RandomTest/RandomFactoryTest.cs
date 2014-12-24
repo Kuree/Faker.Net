@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Faker.Random;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Faker.Locales;
 
 namespace Faker.Net.Test.RandomTest
 {
@@ -16,26 +17,42 @@ namespace Faker.Net.Test.RandomTest
             DummyClass d = new DummyClass(i);
             var r = new Random.RandomFactory(d, Locales.LocaleType.en);
             var result = r.GetRandomItemFromProperty<int>("Test1", d);
+            Assert.IsTrue(Array.Exists(d.Test1, n => n == result));
         }
 
         [TestMethod]
         public void TestRandomFillin()
         {
-            int i = RandomProxy.Next();
-            DummyClass d = new DummyClass(i);
+            int m = RandomProxy.Next();
+            DummyClass d = new DummyClass(m);
             string format = @"#{Test1} #{Test2}";
-            var r = new Random.RandomFactory(d, Locales.LocaleType.en);
-            var result = r.FillInRandomData<int>(format, d);
+            var r = new Random.RandomFactory(d, Locales.LocaleType.en);            
+
+            for (int i = 0; i < 100000; i++)
+            {
+                var result = r.FillInRandomData<int>(format, d);
+                string[] numbers = result.Split(' ');
+                Assert.AreEqual(numbers.Length, 2);
+                Assert.IsTrue(Array.Exists(d.Test1, n => n == int.Parse(numbers[0])));
+                Assert.IsTrue(Array.Exists(d.Test2, n => n == int.Parse(numbers[1])));
+            }
         }
 
         [TestMethod]
         public void TestNextMethod()
         {
-            int i = RandomProxy.Next();
-            DummyClass d = new DummyClass(i);
+            int m = RandomProxy.Next();
+            DummyClass d = new DummyClass(m);
             string format = @"#{Test1} #{Test2}";
             var r = new Random.RandomFactory(d, Locales.LocaleType.en);
-            var result = r.Next<int>(format);
+            for (int i = 0; i < 100000; i++)
+            {
+                var result = r.Next<int>(format);
+                string[] numbers = result.Split(' ');
+                Assert.AreEqual(numbers.Length, 2);
+                Assert.IsTrue(Array.Exists(d.Test1, n => n == int.Parse(numbers[0])));
+                Assert.IsTrue(Array.Exists(d.Test2, n => n == int.Parse(numbers[1])));
+            }
         }
 
         [TestMethod]
@@ -51,7 +68,17 @@ namespace Faker.Net.Test.RandomTest
         {
             string pattern = "@{Name.GetFirstName}";
             Random.RandomFactory random = new RandomFactory(null, Locales.LocaleType.en);
-            var result = random.FillInRandomDataFromMethod(pattern);
+            
+            List<string> names = new List<string>();
+            En en = new En();
+            foreach (var n in en.FirstName) names.Add(n);
+            //foreach (var n in en.MaleFirstName) names.Add(n);
+            //foreach (var n in en.FemaleFirstName) names.Add(n);
+            for (int i  = 0; i < 100000; i++)
+            {
+                var result = random.FillInRandomDataFromMethod(pattern);
+                Assert.IsTrue(names.Contains(result));
+            }
         }
         public class DummyClass
         {

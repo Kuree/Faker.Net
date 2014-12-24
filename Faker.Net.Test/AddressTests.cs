@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Faker;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Faker.Locales;
+
 namespace Faker.Tests
 {
     [TestClass()]
@@ -13,11 +15,19 @@ namespace Faker.Tests
         [TestMethod()]
         public void GetStreetNameTest()
         {
-            Assert.Fail();
+            Address address = new Address();
+            var name = address.GetStreetName();
+
         }
 
         [TestMethod()]
         public void GetCityNameTest()
+        {
+
+        }
+
+        [TestMethod()]
+        public void GetCityPrefixTest()
         {
 
         }
