@@ -39,6 +39,7 @@ namespace Faker.Net.Example
 
         Read_Faker_Input:
             Console.Clear();
+            result = "";
             Console.WriteLine("Please choose a Faker library to explore");
             Console.WriteLine("Enter 0 to return upper level\n[00]: ...");
             int keyCount = 1;

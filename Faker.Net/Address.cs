@@ -51,7 +51,7 @@ namespace Faker
 
         public string GetSecondStreetAddress()
         {
-            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.SecondaryStreetName));
+            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.SecondaryStreetNameFormat));
         }
 
         public string GetCounty()

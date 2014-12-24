@@ -22,7 +22,7 @@ namespace Faker
         public virtual string GetPassword() { return this.GetPassword(15); }
         public virtual string GetPassword(int length)
         {
-            return Membership.GeneratePassword(length, length << 2);
+            return Membership.GeneratePassword(length, length >> 2);
         }
 
         public virtual string GetAvatarURL()

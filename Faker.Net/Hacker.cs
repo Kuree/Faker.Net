@@ -27,6 +27,6 @@ namespace Faker
 
         public string HackerIngVerb() { return Random.Selector.GetRandomItemFromList<string>(locale.HackerIngVerb); }
 
-        public string HackerPhraseFormat() { return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.HackerPhraseFormat)); }
+        public string HackerPhrase() { return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.HackerPhraseFormat)); }
     }
 }

@@ -14,6 +14,7 @@ namespace Faker.Locales
     internal class En : Locale
     {
         public override string Title { get { return "English"; } }
+
         #region Geography
 
         public override string[] CityPrefix
@@ -6362,7 +6363,6 @@ namespace Faker.Locales
                 var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Faker.Locales.Resources.Finance.json");
                 stream.Position = 0;
                 var dic = jsSerializer.DeserializeObject(new StreamReader(stream).ReadToEnd());
-                Debug.WriteLine(dic.GetType().IsArray);
                 return dic as Dictionary<string, Object>;
             }
         }
@@ -6519,14 +6519,14 @@ namespace Faker.Locales
             get
             {
                 return new string[] {
-                                  "If we #{{HackerVerb}} the #{{HackerNoun}}, we can get to the #{{HackerAbbreviation}} #{{HackerNoun}} through the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}!",
-                                  "We need to #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}!",
-                                  "Try to #{{HackerVerb}} the #{{HackerAbbreviation}} #{{HackerNoun}}, maybe it will #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerNoun}}!",
-                                  "You can't #{{HackerVerb}} the #{{HackerNoun}} without #{{HackerIngVerb}} the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}!",
-                                  "Use the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}, then you can #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerNoun}}!",
-                                  "The #{{HackerAbbreviation}} #{{HackerNoun}} is down, #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerNoun}} so we can #{{HackerVerb}} the #{{HackerAbbreviation}} #{{HackerNoun}}!",
-                                  "#{{HackerIngVerb}} the #{{HackerNoun}} won't do anything, we need to #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}!",
-                                  "I'll #{{HackerVerb}} the #{{HackerAdjective}} #{{HackerAbbreviation}} #{{HackerNoun}}, that should #{{HackerNoun}} the #{{HackerAbbreviation}} #{{HackerNoun}}!"};
+                                  "If we #{HackerVerb} the #{HackerNoun}, we can get to the #{HackerAbbreviation} #{HackerNoun} through the #{HackerAdjective} #{HackerAbbreviation} #{HackerNoun}!",
+                                  "We need to #{HackerVerb} the #{HackerAdjective} #{HackerAbbreviation} #{HackerNoun}!",
+                                  "Try to #{HackerVerb} the #{HackerAbbreviation} #{HackerNoun}, maybe it will #{HackerVerb} the #{HackerAdjective} #{HackerNoun}!",
+                                  "You can't #{HackerVerb} the #{HackerNoun} without #{HackerIngVerb} the #{HackerAdjective} #{HackerAbbreviation} #{HackerNoun}!",
+                                  "Use the #{HackerAdjective} #{HackerAbbreviation} #{HackerNoun}, then you can #{HackerVerb} the #{HackerAdjective} #{HackerNoun}!",
+                                  "The #{HackerAbbreviation} #{HackerNoun} is down, #{HackerVerb} the #{HackerAdjective} #{HackerNoun} so we can #{HackerVerb} the #{HackerAbbreviation} #{HackerNoun}!",
+                                  "#{HackerIngVerb} the #{HackerNoun} won't do anything, we need to #{HackerVerb} the #{HackerAdjective} #{HackerAbbreviation} #{HackerNoun}!",
+                                  "I'll #{HackerVerb} the #{HackerAdjective} #{HackerAbbreviation} #{HackerNoun}, that should #{HackerNoun} the #{HackerAbbreviation} #{HackerNoun}!"};
             }
         }
         #endregion
