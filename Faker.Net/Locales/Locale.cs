@@ -14,6 +14,8 @@ namespace Faker.Locales
         public abstract string[] CitySuffix { get; }
         public abstract string[] CityNameFormat { get; }
         public abstract string[] StreetNameFormat { get; }
+        public abstract string[] StreetAddressFormat { get; }
+        public abstract bool HasSecondaryStreetAddress { get; }
         public abstract string[] StreetSuffix { get; }
         public abstract string[] SecondaryStreetNameFormat { get; }
         public abstract string[] SecondaryStreetName { get; }
@@ -40,6 +42,7 @@ namespace Faker.Locales
         public abstract string[] MaleLastName { get; }
         public abstract string[] NamePrefix { get; }
         public abstract string[] NameSuffix { get; }
+        public abstract string[] NameFormat { get; }
 
         // Internet
         public abstract string[] AvatarURL { get; }

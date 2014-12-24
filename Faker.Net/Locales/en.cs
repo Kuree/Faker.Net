@@ -81,6 +81,24 @@ namespace Faker.Locales
             }   
         }
 
+        public override string[] StreetAddressFormat
+        {
+            get
+            {
+                return new string[] {
+                                    "# @{Address.GetStreetName}",
+                                    "## @{Address.GetStreetName}",
+                                    "### @{Address.GetStreetName}",};
+
+            }
+        }
+
+        public override bool HasSecondaryStreetAddress
+        {
+            get { return true; }
+        }
+
+
         public override string[] StreetSuffix
         {
             get
@@ -5030,6 +5048,17 @@ namespace Faker.Locales
                                     "PhD",
                                     "DVM"};
             }       
+        }
+
+        public override string[] NameFormat // Name format is kinda dirty. Need to improve this implementation later
+        {
+            get
+            {
+                return new string[] {
+                                    "{0.8}{FirstName} {LastName}", // {0.8} means probability
+                                    "#{NamePrefix} {FirstName} {LastName}",
+                                    "{FirstName} {LastName} #{NamePrefix}",};
+            }   
         }
 
         #endregion

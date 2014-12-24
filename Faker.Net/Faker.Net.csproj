@@ -52,6 +52,7 @@
     <Compile Include="Helpers.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="Internet.cs" />
+    <Compile Include="Locales\De.cs" />
     <Compile Include="Locales\En.cs" />
     <Compile Include="Locales\En_BORK.cs" />
     <Compile Include="Locales\En_CA.cs" />

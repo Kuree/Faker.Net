@@ -44,9 +44,8 @@ namespace Faker
 
         public string GetStreetAddress(bool useFullAddress)
         {
-            string numberPattern = new string('#', Random.RandomProxy.Next(5));
-            string streetName = GetStreetName();
-            return useFullAddress ? factory.Next<string>(numberPattern, Random.FormatType.Number) + " " + streetName + " " + GetSecondStreetAddress() : factory.Next<string>(numberPattern, Random.FormatType.Number) + " " + streetName;
+            var streetname = factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.StreetAddressFormat));
+            return (useFullAddress && locale.HasSecondaryStreetAddress)? streetname + " " + GetSecondStreetAddress() : streetname;
         }
 
         public string GetSecondStreetAddress()

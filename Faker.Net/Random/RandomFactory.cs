@@ -130,6 +130,16 @@ namespace Faker.Random
             return (T)method.Invoke(obj, null);
         }
 
+        internal bool GetProbablyFromFormat(ref string result)
+        {
+            const string pattern = @"{0.[0-9]+}";
+            var match = Regex.Match(result, pattern);
+            result = result.Remove(match.Index, match.Length);
+            float chance = 0f;
+            float.TryParse(match.Value.Substring(1, match.Value.Length - 2), out chance);
+            return RandomProxy.NextBool(chance);
+        }
+
         
     }
 
