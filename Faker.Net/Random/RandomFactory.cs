@@ -54,7 +54,7 @@ namespace Faker.Random
             for(int i = 0; i < result.Length; i++)
             {
                 if (result[i] == symbol)
-                    result[i] = (char)Random.RandomProxy.Next(10);
+                    result[i] = (char)(Random.RandomProxy.Next(10) + 48);
             }
             return new string(result);
         }
@@ -67,7 +67,6 @@ namespace Faker.Random
                 Match match = matches[0];
                 string name = match.Groups[propertyName].Value;
                 result = result.Remove(match.Index, match.Length).Insert(match.Index, GetRandomItemFromProperty<T>(name, obj).ToString());
-                //result = Regex.Replace(result, replacePattern, GetRandomItemFromProperty<T>(name, obj).ToString());
                 matches = Regex.Matches(result, pattern);
             }
             return FillInRandomDataFromNumber(result); // replace the special # symbol wih random number

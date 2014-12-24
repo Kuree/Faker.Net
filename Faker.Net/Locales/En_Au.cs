@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Faker.Locales
 {
+    [LocaleAttribute(Faker.LocaleType.en_AU)]
     internal class En_Au : En
     {
-        public new static LocaleType LocaleType { get { return LocaleType.en_AU; } }
-
         public override string[] FirstName
         {
             get

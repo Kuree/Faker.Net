@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Faker.Locales
 {
+    [LocaleAttribute(Faker.LocaleType.en_GB)]
     internal class En_GB : En
     {
-        public new static LocaleType LocaleType { get { return LocaleType.en_GB; } }
-
         public override string[] PhoneNumberFormat
         {
             get

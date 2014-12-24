@@ -14,15 +14,12 @@ namespace Faker.Locales
         {
             foreach(var type in Assembly.GetExecutingAssembly().GetTypes())
             { 
-                if (type.BaseType == typeof(Locale) )
+                if (type.BaseType == typeof(Locale) || type.BaseType == typeof(En))
                 {
-                    PropertyInfo info = type.GetProperty("LocaleType", BindingFlags.Static | BindingFlags.Public);
-                    if (info != null)
+                    var attr = Attribute.GetCustomAttribute(type, typeof(LocaleAttribute)) as LocaleAttribute;
+                    if(attr != null && attr.LocaleType == localType)
                     {
-                        if ((LocaleType)info.GetValue(null, null) == localType)
-                        {
-                            return Activator.CreateInstance(type) as Locale;
-                        }
+                        return Activator.CreateInstance(type) as Locale;
                     }
                 }
             }
@@ -36,10 +33,10 @@ namespace Faker.Locales
             {
                 if (type.BaseType == typeof(En) || type.BaseType == typeof(Locale))
                 {
-                    PropertyInfo info = type.GetProperty("LocaleType", BindingFlags.Static | BindingFlags.Public);
-                    if (info != null)
+                    var attr = Attribute.GetCustomAttribute(type, typeof(LocaleAttribute)) as LocaleAttribute;
+                    if (attr != null)
                     {
-                        list.Add((LocaleType)(LocaleType)info.GetValue(null, null));
+                        list.Add(attr.LocaleType);
                     }
                 }
             }

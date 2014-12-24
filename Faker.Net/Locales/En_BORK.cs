@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Faker.Locales
 {
+    [LocaleAttribute(Faker.LocaleType.en_BORK)]
     internal class En_BORK : En
     {
-        public new static LocaleType LocaleType { get { return LocaleType.en_BORK; } }
-
         public override string[] LoremWord
         {
             get

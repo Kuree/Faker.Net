@@ -16,14 +16,14 @@ namespace Faker.Net.Example
             LocaleType chosenLocale = LocaleType.en;
             Dictionary<string, FakerBase> availableFakers;
             FakerBase faker;
+            string result = "";
             goto Read_Locale_Input;
-
 
         Read_Locale_Input:
             var localeTypes = GetAllLocalType();
             for (int i = 0; i < localeTypes.Count; i++)
             {
-                Console.WriteLine(string.Format("[{0}]: {1}", i, localeTypes.Keys.ElementAt(i)));
+                Console.WriteLine(string.Format("[{0:d2}]: {1}", i, localeTypes.Keys.ElementAt(i)));
             }
             int intChosenLocale = 0;
             if (!int.TryParse(Console.ReadLine(), out intChosenLocale) || intChosenLocale >= localeTypes.Count)
@@ -38,14 +38,15 @@ namespace Faker.Net.Example
             goto Read_Faker_Input;
 
         Read_Faker_Input:
+            Console.Clear();
             Console.WriteLine("Please choose a Faker library to explore");
-            Console.WriteLine("Enter 0 to return upper level\n[0]: ...");
+            Console.WriteLine("Enter 0 to return upper level\n[00]: ...");
             int keyCount = 1;
             string[] fakerKeys = new string[availableFakers.Count];
             foreach (var kvp in availableFakers)
             {
                 fakerKeys[keyCount - 1] = kvp.Key;
-                Console.WriteLine(string.Format("[{0}]: {1}", keyCount++, kvp.Key));
+                Console.WriteLine(string.Format("[{0:d2}]: {1}", keyCount++, kvp.Key));
             }
             int fakerChoice = 0;
             if (!int.TryParse(Console.ReadLine(), out fakerChoice) || fakerChoice > fakerKeys.Length)
@@ -59,25 +60,26 @@ namespace Faker.Net.Example
             goto Read_Write_Method;
 
         Read_Write_Method:
+            Console.Clear();
             Console.WriteLine("Please choose a method to explore");
-            Console.WriteLine("Enter 0 to return upper level\n[0]: ...");
+            Console.WriteLine("Enter 0 to return upper level\n[00]: ...");
             var methods = GetMethods(faker);
             for (int i = 1; i <= methods.Length; i++)
             {
-                Console.WriteLine(string.Format("[{0}]: {1}", i, methods[i - 1].Name));
+                Console.WriteLine(string.Format("[{0:d2}]: {1}", i, methods[i - 1].Name));
             }
+            if (!string.IsNullOrWhiteSpace(result)) { Console.WriteLine(result); }
             int methodChoice = 0;
             if (!int.TryParse(Console.ReadLine(), out methodChoice) || methodChoice > methods.Length)
             {
-                Console.WriteLine("Incorrect number input, please try again.");
+                result = "Incorrect number input, please try again.";
                 Console.Clear();
                 goto Read_Write_Method;
             }
             else
             {
                 if (methodChoice == 0) { Console.Clear(); goto Read_Faker_Input; }
-                Console.WriteLine("Result: " + InvokeMethod(methods[methodChoice - 1], faker));
-                Console.WriteLine();
+                result = string.Format("Result [{0:d2}]:\n{1}", methodChoice, InvokeMethod(methods[methodChoice - 1], faker));
                 goto Read_Write_Method;
             }
         }
@@ -112,7 +114,8 @@ namespace Faker.Net.Example
             List<MethodInfo> list = new List<MethodInfo>();
             foreach(var method in type.GetMethods())
             {
-                if(method.IsPublic && !method.IsSpecialName && method.GetBaseDefinition().DeclaringType != typeof(object))
+                if(method.IsPublic && !method.IsSpecialName && method.GetBaseDefinition().DeclaringType != typeof(object)
+                    && method.GetParameters().Length == 0)
                 {
                     list.Add(method);
                 }
@@ -122,7 +125,7 @@ namespace Faker.Net.Example
 
         static string InvokeMethod(MethodInfo method, object obj)
         {
-            return method.Invoke(obj, null) as string;
+            return method.Invoke(obj, null).ToString();
         }
 
     }

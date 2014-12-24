@@ -36,4 +36,19 @@ namespace Faker
         vi,
         zh_CN
     }
+
+}
+
+namespace Faker.Locales
+{
+
+    [AttributeUsage(AttributeTargets.Class, Inherited = true)]
+    internal class LocaleAttribute : Attribute
+    {
+        public LocaleType LocaleType { get; private set; }
+        public LocaleAttribute(LocaleType type)
+        {
+            this.LocaleType = type;
+        }
+    }
 }

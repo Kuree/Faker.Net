@@ -16,20 +16,20 @@ namespace Faker
         public static Lorem Default { get { return defaultValue; } }
         private static Lorem defaultValue = new Lorem();
 
-        public string[] GetWords()
+        public string GetWords()
         {
             return this.GetWords(3);
         }
 
-        public string[] GetWords(int num)
+        public string GetWords(int num)
         {
-            return Selector.GetMultipleRandomItemsFromList<string>(locale.LoremWord, num);
+            return string.Join(" ", Selector.GetMultipleRandomItemsFromList<string>(locale.LoremWord, num));
         }
 
         public string GetSentence(int wordCount, int range)
         {
             var resultList = GetWords(wordCount + RandomProxy.Next(range));
-            var charList = string.Join(" ", resultList).ToCharArray();
+            var charList = resultList.ToCharArray();
             charList[0] = char.ToUpper(charList[0]);
             return new string(charList) + ".";
         }
@@ -39,6 +39,10 @@ namespace Faker
             return this.GetSentence(7, 4);
         }
 
+        public string GetSentences()
+        {
+            return this.GetSentences(7);
+        }
         public string GetSentences(int count)
         {
             List<string> sentences = new List<string>(count);
@@ -54,6 +58,11 @@ namespace Faker
         public string GetParagraph()
         {
             return this.GetParagraph(3);
+        }
+
+        public string GetParagraphs()
+        {
+            return this.GetParagraphs(4);
         }
 
         public string GetParagraphs(int count)
