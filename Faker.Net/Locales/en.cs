@@ -81,19 +81,28 @@ namespace Faker.Locales
             }   
         }
 
+        public override string[] BuildingNumberFormat
+        {
+            get
+            {
+                return new string[] {
+                                    "#",
+                                    "##",
+                                    "###"};
+            }  
+        }
+
         public override string[] StreetAddressFormat
         {
             get
             {
                 return new string[] {
-                                    "# @{Address.GetStreetName}",
-                                    "## @{Address.GetStreetName}",
-                                    "### @{Address.GetStreetName}",};
+                                    "#{BuildingNumberFormat} @{Address.GetStreetName}",};
 
             }
         }
 
-        public override bool HasSecondaryStreetAddress
+        public override bool HasFullStreetAddress
         {
             get { return true; }
         }

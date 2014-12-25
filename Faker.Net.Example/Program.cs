@@ -62,7 +62,7 @@ namespace Faker.Net.Example
 
         Read_Write_Method:
             Console.Clear();
-            Console.WriteLine("Please choose a method to explore");
+            Console.WriteLine("Please choose a method to explore\nOnly methods without parameters are displayed");
             Console.WriteLine("Enter 0 to return upper level\n[00]: ...");
             var methods = GetMethods(faker);
             for (int i = 1; i <= methods.Length; i++)

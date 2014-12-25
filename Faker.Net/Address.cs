@@ -45,7 +45,7 @@ namespace Faker
         public string GetStreetAddress(bool useFullAddress)
         {
             var streetname = factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.StreetAddressFormat));
-            return (useFullAddress && locale.HasSecondaryStreetAddress)? streetname + " " + GetSecondStreetAddress() : streetname;
+            return (useFullAddress && locale.HasFullStreetAddress)? streetname + " " + GetSecondStreetAddress() : streetname;
         }
 
         public string GetSecondStreetAddress()
@@ -91,6 +91,11 @@ namespace Faker
         public string GetZipCode()
         {
             return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.PostCode));
+        }
+
+        public string GetTimeZone()
+        {
+            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.TimeZone));
         }
     }
 }

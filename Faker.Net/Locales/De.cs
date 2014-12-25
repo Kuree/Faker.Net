@@ -1325,7 +1325,7 @@ namespace Faker.Locales
             }  
         }
 
-        public string[] BuildingNumberFormat
+        public override string[] BuildingNumberFormat
         {
             get
             {
@@ -1444,7 +1444,7 @@ namespace Faker.Locales
             }
         }
 
-        public override bool HasSecondaryStreetAddress
+        public override bool HasFullStreetAddress
         {
             get
             {
