@@ -4642,10 +4642,10 @@ namespace Faker.Locales
             get
             {
                 return new string[] { 
-                                "zu",
-                                "von",
-                                "vom",
-                                "von der"
+                                    "zu",
+                                    "von",
+                                    "vom",
+                                    "von der",
                 };
             } 
         }
@@ -4654,8 +4654,25 @@ namespace Faker.Locales
         {
             get
             {
-                return base.NameFormat;
-            }
+                return new string[] { 
+                                    "{0.8}@{Name.GetFirstName} @{Name.GetLastName}",
+                                    "#{NamePrefix} @{Name.GetFirstName} @{Name.GetLastName}",
+                                    "@{Name.GetFirstName} #{NobilityTitlePrefix} @{Name.GetLastName}",
+                };
+            } 
+        }
+
+        public override string[] PhoneNumberFormat
+        {
+            get
+            {
+                return new string[] { 
+                                    "(0###) #########",
+                                    "(0####) #######",
+                                    "+49-###-#######",
+                                    "+49-####-########",
+                };
+            } 
         }
         
         #endregion

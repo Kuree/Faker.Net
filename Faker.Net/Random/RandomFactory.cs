@@ -134,6 +134,7 @@ namespace Faker.Random
         {
             const string pattern = @"{0.[0-9]+}";
             var match = Regex.Match(result, pattern);
+            if (!match.Success) return true;
             result = result.Remove(match.Index, match.Length);
             float chance = 0f;
             float.TryParse(match.Value.Substring(1, match.Value.Length - 2), out chance);

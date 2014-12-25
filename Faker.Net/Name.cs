@@ -61,7 +61,7 @@ namespace Faker
             result = result.Replace("{FirstName}", firstName);
             result = result.Replace("{LastName}", lastName);
             var match = Regex.Match(result, "{0.[0-9]+}");
-            if (match != null) result.Remove(match.Index, match.Length);
+            if (match.Success) result = result.Remove(match.Index, match.Length);
             return result;
         }
 
