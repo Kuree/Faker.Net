@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Faker.net by Kuree</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Faker.net</h1>
+        <h2></h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Kuree/Faker.Net/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/Kuree/Faker.Net/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/Kuree/Faker.Net" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="fakernet---generate-massive-amounts-of-fake-data-in-net" class="anchor" href="#fakernet---generate-massive-amounts-of-fake-data-in-net" aria-hidden="true"><span class="octicon octicon-link"></span></a>Faker.Net - Generate massive amounts of fake data in .NET</h1>
+
+<p><img src="http://imgur.com/KiinQ.png" border="0"></p>
+
+<h2>
+<a id="localizations" class="anchor" href="#localizations" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Localizations</strong>
+</h2>
+
+<p>Here are currently supported languages, more languages are porting into Faker.Net</p>
+
+<ul>
+<li>English</li>
+<li>English (UK)</li>
+<li>English (US)</li>
+<li>English (Bork)</li>
+<li>English (Canada)</li>
+<li>English (Australia)</li>
+<li>English (India)</li>
+<li>German</li>
+<li>Spanish</li>
+<li>Farsi</li>
+<li>Japanese</li>
+<li>French</li>
+<li>Italian</li>
+<li>Korean</li>
+</ul>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>API</strong>
+</h2>
+
+<ul>
+<li>
+<strong>Address</strong>
+
+<ul>
+<li>GetCityPrefix</li>
+<li> GetCitySuffix</li>
+<li> GetCityName</li>
+<li> GetStreetName</li>
+<li> GetStreetAddress</li>
+<li> GetSecondStreetAddress</li>
+<li> GetCounty</li>
+<li> GetCountry</li>
+<li> GetCountryCode</li>
+<li> GetState</li>
+<li> GetStateAbbr</li>
+<li> GetLatitude</li>
+<li> GetLongitute</li>
+<li> GetZipCode</li>
+<li> GetTimeZone</li>
+</ul>
+</li>
+<li>
+<strong>Company</strong>
+
+<ul>
+<li>GetCompanyName</li>
+<li>GetCompanySuffix</li>
+<li>GetCatchPhraseAdjective</li>
+<li>GetCatchPhraseDescriptor</li>
+<li>GetCatchPhraseNoun</li>
+<li>GetCatchPhase</li>
+</ul>
+</li>
+<li>
+<strong>Date</strong>
+
+<ul>
+<li>GetPast</li>
+<li>GetFuture</li>
+<li>GetRecent</li>
+<li>GetDateBetween</li>
+</ul>
+</li>
+<li>
+<strong>Finance</strong>
+
+<ul>
+<li>GetAccountName</li>
+<li>GetAccount</li>
+<li>GetTransactionType</li>
+<li>GetCurrencyName</li>
+<li>GetCurrencyCode</li>
+<li>GetCurrencySymbol</li>
+</ul>
+</li>
+<li>
+<strong>Hacker</strong>
+
+<ul>
+<li>HackerNoun</li>
+<li>HackerVerb</li>
+<li>HackerAdjective</li>
+<li>HackerAbbreviat</li>
+<li>HackerIngVerb</li>
+<li>HackerPhrase</li>
+</ul>
+</li>
+<li>
+<strong>Image</strong>
+
+<ul>
+<li>GetAvatarURL</li>
+<li>GetImageURL</li>
+</ul>
+</li>
+<li>
+<strong>Internet</strong>
+
+<ul>
+<li>GetPassword</li>
+<li>GetAvatarURL</li>
+<li>GetColorRGB</li>
+<li>GetColorARGB</li>
+<li>GetColorString</li>
+<li>GetUserName</li>
+<li>GetEmail</li>
+<li>GetIP</li>
+<li>GetDomainWord</li>
+<li>GetDomainName</li>
+<li>GetDomainSuffix</li>
+</ul>
+</li>
+<li>
+<strong>Lorem</strong>
+
+<ul>
+<li>GetWords</li>
+<li>GetSentence</li>
+<li>GetSentences</li>
+<li>GetParagraph</li>
+<li>GetParagraphs</li>
+</ul>
+</li>
+<li>
+<strong>Name</strong>
+
+<ul>
+<li>GetLastName</li>
+<li>GetFirstName</li>
+<li>GetName</li>
+</ul>
+</li>
+<li>
+<strong>PhoneNumber</strong>
+
+<ul>
+<li>GetPhoneNumber</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Each faker class inherits FakerBase, and by design are not static. However, they all have a static Default member (English) to access if you don't want to create the class object.</p>
+
+<h2>
+<a id="fakerjs" class="anchor" href="#fakerjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Faker.js</h2>
+
+<p>This project is not a line-for-line conversion from faker.js, though most of its data source comes from faker.js. The philosophy behinds the conversion is to make it as intelligent as possible. Heavily used Regex and Reflection makes the library easy to maintain and update in .NET framework.</p>
+
+<p>The copyright statement from faker.js. </p>
+
+<blockquote>
+<p>Matthew Bergman &amp; Marak Squires
+<br>
+Copyright (c) 2014 Matthew Bergman &amp; Marak Squires <a href="http://github.com/marak/faker.js/">http://github.com/marak/faker.js/</a>
+<br>
+faker.js was inspired by and has used data definitions from
+<br>
+  <a href="https://github.com/stympy/faker/">https://github.com/stympy/faker/</a> - Copyright (c) 2007-2010 Benjamin Curtis <br>
+  <a href="http://search.cpan.org/%7Ejasonk/Data-Faker-0.07/">http://search.cpan.org/~jasonk/Data-Faker-0.07/</a> - Copyright 2004-2005 by Jason Kohles <br>
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+<br>
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+<br>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</blockquote>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
