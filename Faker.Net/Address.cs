@@ -55,7 +55,7 @@ namespace Faker
 
         public string GetCounty()
         {
-            throw new NotImplementedException("Waiting for data");
+            return "Waiting for data"; // exception will break the example and other applications
         }
 
         public string GetCountry()
