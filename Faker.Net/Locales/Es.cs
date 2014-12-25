@@ -8,6 +8,8 @@ namespace Faker.Locales
     [LocaleAttribute(Faker.LocaleType.es)]
     internal class Es : En
     {
+        public override string Title { get { return "Spanish"; } }
+
         #region Geography
         public override string[] CityPrefix
         {

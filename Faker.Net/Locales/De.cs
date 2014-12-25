@@ -8,6 +8,8 @@ namespace Faker.Locales
     [LocaleAttribute(Faker.LocaleType.de)]
     internal class De : En
     {
+        public override string Title { get { return "German"; } }
+
         #region Geography
         public override string[] CityPrefix
         {
@@ -4655,7 +4657,7 @@ namespace Faker.Locales
             get
             {
                 return new string[] { 
-                                    "{0.8}@{Name.GetFirstName} @{Name.GetLastName}",
+                                    "{0.8}{FirstName} {LastName}",
                                     "#{NamePrefix} @{Name.GetFirstName} @{Name.GetLastName}",
                                     "@{Name.GetFirstName} #{NobilityTitlePrefix} @{Name.GetLastName}",
                 };
