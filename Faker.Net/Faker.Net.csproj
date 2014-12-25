@@ -61,6 +61,7 @@
     <Compile Include="Locales\En_US.cs" />
     <Compile Include="Locales\Es.cs" />
     <Compile Include="Locales\Fa.cs" />
+    <Compile Include="Locales\Fr.cs" />
     <Compile Include="Locales\Locale.cs" />
     <Compile Include="Locales\LocaleFactory.cs" />
     <Compile Include="Locales\LocaleType.cs" />
