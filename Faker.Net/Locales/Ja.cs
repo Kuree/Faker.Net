@@ -8,6 +8,8 @@ namespace Faker.Locales
     [LocaleAttribute(Faker.LocaleType.ja)]
     internal class Ja : En
     {
+        public override string Title { get { return "Japanese"; } }
+
         #region Geography
         public override string[] PostCode
         {
