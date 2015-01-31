@@ -1,15 +1,12 @@
-﻿using Faker.Locales;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Faker.Random;
 
 namespace Faker
 {
     public class Lorem :FakerBase
     {
-        public Lorem() : base() { }
+        public Lorem()
+        { }
         public Lorem(LocaleType type) : base(type) { }
 
         // default static interface
@@ -23,7 +20,7 @@ namespace Faker
 
         public string GetWords(int num)
         {
-            return string.Join(" ", Selector.GetMultipleRandomItemsFromList<string>(locale.LoremWord, num));
+            return string.Join(" ", Selector.GetMultipleRandomItemsFromList(locale.LoremWord, num));
         }
 
         public string GetSentence(int wordCount, int range)

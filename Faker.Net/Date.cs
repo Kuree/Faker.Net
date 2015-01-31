@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Faker.Locales;
+using Faker.Random;
 
 namespace Faker
 {
     public class Date : FakerBase
     {
-        public Date() : base() { }
+        public Date()
+        { }
         public Date(LocaleType type) : base(type) { }
 
         // default static interface
@@ -24,7 +21,7 @@ namespace Faker
         public DateTime GetPast(int yearSpan)
         {
             DateTime now = DateTime.Now;
-            long timespan = Random.RandomProxy.Next(1000, (long)yearSpan * 365 * 24 * 3600 * 1000);
+            long timespan = RandomProxy.Next(1000, (long)yearSpan * 365 * 24 * 3600 * 1000);
             TimeSpan span = new TimeSpan(-timespan);
             return now.Add(span);
         }
@@ -37,7 +34,7 @@ namespace Faker
         public DateTime GetFuture(int yearSpan)
         {
             DateTime now = DateTime.Now;
-            long timespan = Random.RandomProxy.Next(1000, (long)yearSpan * 365 * 24 * 3600 * 1000);
+            long timespan = RandomProxy.Next(1000, (long)yearSpan * 365 * 24 * 3600 * 1000);
             TimeSpan span = new TimeSpan(timespan);
             return now.Add(span);
         }
@@ -45,7 +42,7 @@ namespace Faker
         public DateTime GetRecent(int daySpan)
         {
             DateTime now = DateTime.Now;
-            long timespan = Random.RandomProxy.Next(1000, (long)daySpan * 24 * 3600 * 1000);
+            long timespan = RandomProxy.Next(1000, (long)daySpan * 24 * 3600 * 1000);
             TimeSpan span = new TimeSpan(timespan);
             return now.Add(span);
         }
@@ -53,7 +50,7 @@ namespace Faker
         public DateTime GetDateBetween(DateTime from, DateTime to)
         {
             var timeSpan = to - from;
-            return from.Add(new TimeSpan((long)Random.RandomProxy.NextDouble(timeSpan.TotalMilliseconds)));
+            return from.Add(new TimeSpan((long)RandomProxy.NextDouble(timeSpan.TotalMilliseconds)));
         }
     }
 }

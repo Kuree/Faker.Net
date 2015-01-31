@@ -1,41 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Faker.Locales;
+using Faker.Random;
 
 namespace Faker
 {
     public class Address : FakerBase
     {
         public Address() : this(LocaleType.en) { }
-        public Address(LocaleType type) : base(type) { this.factory = new Random.RandomFactory(this.locale, this.LocaleType); }
+        public Address(LocaleType type) : base(type) { this.factory = new RandomFactory(this.locale, this.LocaleType); }
 
         // default static interface
         public static Address Default { get { return defaultValue; } }
         private static Address defaultValue = new Address();
 
-        private Random.RandomFactory factory;
+        private RandomFactory factory;
 
         public string GetCityPrefix()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.CityPrefix);
+            return Selector.GetRandomItemFromList(locale.CityPrefix);
         }
 
         public string GetCitySuffix()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.CitySuffix);
+            return Selector.GetRandomItemFromList(locale.CitySuffix);
         }
 
         public string GetCityName()
         {
-            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.CityNameFormat));
+            return factory.Next<string>(Selector.GetRandomItemFromList(locale.CityNameFormat));
         }
 
         public string GetStreetName()
         {
-            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.StreetNameFormat));
+            return factory.Next<string>(Selector.GetRandomItemFromList(locale.StreetNameFormat));
         }
         public string GetStreetAddress()
         {
@@ -44,13 +40,13 @@ namespace Faker
 
         public string GetStreetAddress(bool useFullAddress)
         {
-            var streetname = factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.StreetAddressFormat));
+            var streetname = factory.Next<string>(Selector.GetRandomItemFromList(locale.StreetAddressFormat));
             return (useFullAddress && locale.HasFullStreetAddress)? streetname + " " + GetSecondStreetAddress() : streetname;
         }
 
         public string GetSecondStreetAddress()
         {
-            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.SecondaryStreetNameFormat));
+            return factory.Next<string>(Selector.GetRandomItemFromList(locale.SecondaryStreetNameFormat));
         }
 
         public string GetCounty()
@@ -60,42 +56,42 @@ namespace Faker
 
         public string GetCountry()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.Country);
+            return Selector.GetRandomItemFromList(locale.Country);
         }
 
         public string GetCountryCode()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.CountryCode);
+            return Selector.GetRandomItemFromList(locale.CountryCode);
         }
 
         public string GetState()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.State);
+            return Selector.GetRandomItemFromList(locale.State);
         }
 
         public string GetStateAbbr()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.State);
+            return Selector.GetRandomItemFromList(locale.State);
         }
 
         public Single GetLatitude()
         {
-            return Random.RandomProxy.NextSingle() * 180 - 90;
+            return RandomProxy.NextSingle() * 180 - 90;
         }
 
         public Single GetLongitute()
         {
-            return Random.RandomProxy.NextSingle() * 180 - 90;
+            return RandomProxy.NextSingle() * 180 - 90;
         }
 
         public string GetZipCode()
         {
-            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.PostCode));
+            return factory.Next<string>(Selector.GetRandomItemFromList(locale.PostCode));
         }
 
         public string GetTimeZone()
         {
-            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.TimeZone));
+            return factory.Next<string>(Selector.GetRandomItemFromList(locale.TimeZone));
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Faker.Random
 {
@@ -17,7 +14,7 @@ namespace Faker.Random
         public static T GetRandomKeyFromDictionary<T, D>(IDictionary<T, D> dic)
         {
             var keys = dic.Keys.ToArray();
-            return GetRandomItemFromList<T>(keys);
+            return GetRandomItemFromList(keys);
         }
 
         public static T[] GetMultipleRandomItemsFromList<T>(IList<T> list, int count)
@@ -25,8 +22,8 @@ namespace Faker.Random
             List<T> result = new List<T>(count);
             for(int i = 0; i < list.Count; i++)
             {
-                double p = ((double)count - (double)result.Count) / ((double)list.Count - i);
-                if (Random.RandomProxy.NextBool(p)) 
+                double p = (count - (double)result.Count) / ((double)list.Count - i);
+                if (RandomProxy.NextBool(p)) 
                     result.Add(list[i]);
                 if (result.Count >= count)
                     return result.ToArray();

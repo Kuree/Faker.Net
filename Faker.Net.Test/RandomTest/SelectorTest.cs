@@ -1,7 +1,7 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Faker.Random;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Faker.Net.Test.RandomTest
 {
@@ -22,7 +22,7 @@ namespace Faker.Net.Test.RandomTest
             for (int i = 0; i < sourceSize; i++) resultCount.Add(i, 0);
             for (int i = 0; i < iter; i++)
             {
-                var result = Selector.GetMultipleRandomItemsFromList<int>(source, selectionSize);
+                var result = Selector.GetMultipleRandomItemsFromList(source, selectionSize);
                 foreach (var r in result) resultCount[r]++;
             }
 

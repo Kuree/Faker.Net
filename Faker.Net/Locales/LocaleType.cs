@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Faker
 {
@@ -42,7 +38,7 @@ namespace Faker
 namespace Faker.Locales
 {
 
-    [AttributeUsage(AttributeTargets.Class, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class)]
     internal class LocaleAttribute : Attribute
     {
         public LocaleType LocaleType { get; private set; }

@@ -1,26 +1,22 @@
-﻿using Faker.Locales;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Faker.Random;
 
 namespace Faker
 {
     public class Finance : FakerBase
     {
         public Finance() : this(LocaleType.en) { }
-        public Finance(LocaleType type) : base(type) { this.factory = new Random.RandomFactory(this.locale, this.LocaleType); }
+        public Finance(LocaleType type) : base(type) { this.factory = new RandomFactory(this.locale, this.LocaleType); }
 
         // default static interface
         public static Finance Default { get { return defaultValue; } }
         private static Finance defaultValue = new Finance();
 
-        private Random.RandomFactory factory;
+        private RandomFactory factory;
 
         public string GetAccountName()
         {
-            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.AccountTypeFormat));
+            return factory.Next<string>(Selector.GetRandomItemFromList(locale.AccountTypeFormat));
         }
 
         public string GetAccount()
@@ -31,7 +27,7 @@ namespace Faker
         public string GetAccount(int length)
         {
             string format = new string('#', length);
-            return factory.Next<string>(format, Random.FormatType.Number);
+            return factory.Next<string>(format, FormatType.Number);
         }
 
         public string GetAmount(decimal min, decimal max)
@@ -41,17 +37,17 @@ namespace Faker
 
         public string GetAmount(decimal min, decimal max, int decimalPlace, string symbol)
         {
-            return symbol + Decimal.Round(Random.RandomProxy.Next(min, max), decimalPlace).ToString();
+            return symbol + Decimal.Round(RandomProxy.Next(min, max), decimalPlace);
         }
 
         public string GetTransactionType()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.TransactionType);
+            return Selector.GetRandomItemFromList(locale.TransactionType);
         }
 
         public string GetCurrencyName()
         {
-            return Random.Selector.GetRandomKeyFromDictionary<string, Object>(locale.Currency);
+            return Selector.GetRandomKeyFromDictionary(locale.Currency);
         }
 
         public string GetCurrencyCode()

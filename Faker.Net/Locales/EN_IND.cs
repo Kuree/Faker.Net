@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.en_IND)]
+    [Locale(LocaleType.en_IND)]
     internal class EN_IND : En
     {
         public override string[] FirstName
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "Aadrika",
                                 "Aanandinii",
                                 "Aaratrika",
@@ -782,7 +777,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "Abbott",
                                 "Achari",
                                 "Acharya",
@@ -879,7 +874,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "Andra Pradesh",
                                 "Arunachal Pradesh",
                                 "Assam",
@@ -922,7 +917,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "AP",
                                 "AR",
                                 "AS",
@@ -965,7 +960,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "gmail.com",
                                 "yahoo.co.in",
                                 "hotmail.com"};
@@ -976,7 +971,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "in",
                                 "com",
                                 "biz",
@@ -992,7 +987,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "Pvt Ltd",
                                 "Limited",
                                 "Ltd",
@@ -1007,7 +1002,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "+91###-###-####",
                                 "+91##########",
                                 "+91-###-#######"};

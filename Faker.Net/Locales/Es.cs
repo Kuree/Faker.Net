@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.es)]
+    [Locale(LocaleType.es)]
     internal class Es : En
     {
         public override string Title { get { return "Spanish"; } }
@@ -15,7 +10,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                  "Parla",
                                 "Telde",
                                 "Baracaldo",
@@ -152,7 +147,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Afganistán",
                                     "Albania",
                                     "Argelia",
@@ -341,7 +336,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     " s/n.",
                                     ", #",
                                     ", ##",
@@ -355,7 +350,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Aldea",
                                     "Apartamento",
                                     "Arrabal",
@@ -434,8 +429,8 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
-                                    "#{SecondaryStreetName} ###",
+                return new[] { 
+                                    "#{SecondaryStreetName} ###"
                 };
             }
         }
@@ -444,7 +439,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Esc.",
                                     "Puerta"           
                 };
@@ -455,7 +450,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                    "#{StreetSuffix} @{Name.GetFirstName}",
                                    "#{StreetSuffix} @{Name.GetFirstName} @{Name.GetLastName}"           
                 };
@@ -466,7 +461,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "@{Address.GetStreetName}#{BuildingNumberFormat}",
                                     "@{Address.GetStreetName}#{BuildingNumberFormat} @{Address.GetSecondStreetAddress}"          
                 };
@@ -477,7 +472,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "#####"        
                 };
             }
@@ -487,7 +482,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Andalucía",
                                     "Aragón",
                                     "Principado de Asturias",
@@ -513,7 +508,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "And",
                                     "Ara",
                                     "Ast",
@@ -539,7 +534,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Pacífico/Midway",
                                     "Pacífico/Pago_Pago",
                                     "Pacífico/Honolulu",
@@ -691,7 +686,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "#{CityPrefix}"      
                 };
             }
@@ -703,7 +698,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "S.L.",
                                     "e Hijos",
                                     "S.A.",
@@ -716,7 +711,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                       "habilidad",
                                       "acceso",
                                       "adaptador",
@@ -818,7 +813,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                       "24 horas",
                                       "24/7",
                                       "3rd generación",
@@ -908,7 +903,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                       "Adaptativo",
                                       "Avanzado",
                                       "Asimilado",
@@ -1002,7 +997,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "@{Name.GetLastName} #{CompanySuffix}",
                                     "@{Name.GetLastName} y #{Name.GetLastName}",
                                     "@{Name.GetLastName} #{Name.GetLastName} #{CompanySuffix}",
@@ -1017,7 +1012,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "com",
                                     "es",
                                     "info",
@@ -1033,7 +1028,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Adán",
                                     "Agustín",
                                     "Alberto",
@@ -1254,7 +1249,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Abeyta",
                                     "Abrego",
                                     "Abreu",
@@ -1901,7 +1896,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Sr.",
                                     "Sra.",
                                     "Sta."  
@@ -1913,7 +1908,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Jr.",
                                     "Sr.",
                                     "I",
@@ -1933,7 +1928,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "#{NamePrefix} @{Name.GetFirstName} @{Name.GetLastName} #{NameSuffix}",
                                     "@{Name.GetFirstName} @{Name.GetLastName} @{Name.GetLastName}",
                                     "@{Name.GetFirstName} @{Name.GetLastName} @{Name.GetLastName}",
@@ -1949,11 +1944,11 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "6##-###-###",
                                     "6##.###.###",
                                     "6## ### ###",
-                                    "6########",};
+                                    "6########"};
 
             }
         }

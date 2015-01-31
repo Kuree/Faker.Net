@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Faker;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace Faker.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class HelpersTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void GetAvailableLocaleTypesTest()
         {
-            var result = Faker.Helpers.GetAvailableLocaleTypes();
+            var result = Helpers.GetAvailableLocaleTypes();
             Assert.IsTrue(result.Length > 1);
         }
     }

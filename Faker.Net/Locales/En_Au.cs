@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.en_AU)]
+    [Locale(LocaleType.en_AU)]
     internal class En_Au : En
     {
         public override string[] FirstName
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "William",
                                     "Jack",
                                     "Oliver",
@@ -220,7 +215,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "Smith",
                                     "Jones",
                                     "Williams",
@@ -514,7 +509,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "Pty Ltd",
                                     "and Sons",
                                     "Corp",
@@ -528,7 +523,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "com.au",
                                     "com",
                                     "net.au",
@@ -542,7 +537,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "NSW",
                                     "QLD",
                                     "NT",
@@ -558,7 +553,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "New South Wales",
                                     "Queensland",
                                     "Northern Territory",
@@ -574,7 +569,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "0###",
                                     "2###",
                                     "3###",
@@ -589,7 +584,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "Avenue",
                                     "Boulevard",
                                     "Circle",
@@ -634,7 +629,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "0# #### ####",
                                     "+61 # #### ####",
                                     "04## ### ###",

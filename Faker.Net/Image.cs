@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Faker.Locales;
-
-namespace Faker
+﻿namespace Faker
 {
     public class Image : FakerBase
     {
-        public Image() : base() { }
+        public Image()
+        { }
         public Image(LocaleType type) : base(type) { }
 
         // default static interface
         public static Image Default { get { return defaultValue; } }
         private static Image defaultValue = new Image();
 
-        private string[] imageTypes = new string[] { "abstract", "animals", "business", "cats", "city", "food", "nightlife", "fashion", "people", "nature", "sports", "technics", "transport" };
+        private string[] imageTypes = { "abstract", "animals", "business", "cats", "city", "food", "nightlife", "fashion", "people", "nature", "sports", "technics", "transport" };
 
         public string GetAvatarURL()
         {
@@ -44,7 +38,7 @@ namespace Faker
         }
     }
 
-    public enum ImageType : int
+    public enum ImageType
     {
         Abstract,
         Animals,

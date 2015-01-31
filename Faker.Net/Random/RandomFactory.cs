@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 using System.Reflection;
-using System.Diagnostics;
-using Faker.Locales;
+using System.Text.RegularExpressions;
 
 namespace Faker.Random
 {
@@ -14,7 +10,7 @@ namespace Faker.Random
     {
         private Object obj;
         private LocaleType localeType;
-        private const string propertyName = "propertyName";
+        private const string propertyName = "strPropertyName";
         private const string methodName = "methodName";
 
         // Might have some other better way to do it
@@ -42,10 +38,7 @@ namespace Faker.Random
                 var withProperty =  FillInRandomDataFromProperty<T>(format, obj, ref result, pattern);
                 return this.FillInRandomDataFromMethod(withProperty);
             }
-            else
-            {
-                return this.FillInRandomDataFromNumber(format);
-            }
+            return this.FillInRandomDataFromNumber(format);
         }
 
         private string FillInRandomDataFromNumber(string format, char symbol = '#')
@@ -54,7 +47,7 @@ namespace Faker.Random
             for(int i = 0; i < result.Length; i++)
             {
                 if (result[i] == symbol)
-                    result[i] = (char)(Random.RandomProxy.Next(10) + 48);
+                    result[i] = (char)(RandomProxy.Next(10) + 48);
             }
             return new string(result);
         }
@@ -93,16 +86,16 @@ namespace Faker.Random
             return result;
         }
 
-        internal T GetRandomItemFromProperty<T>(string propertyName, Object obj, int index = -1)
+        internal T GetRandomItemFromProperty<T>(string strPropertyName, Object obj, int index = -1)
         {
             T result = default(T);
             Type type = obj.GetType();
-            var property = type.GetProperties().FirstOrDefault(entry => entry.Name == propertyName);
+            var property = type.GetProperties().FirstOrDefault(entry => entry.Name == strPropertyName);
             if(property != null)
             {
                 var values = property.GetValue(obj, null) as IList<T>;
                 if (values != null)
-                    return index == -1? Random.Selector.GetRandomItemFromList<T>(values) : values[index];
+                    return index == -1? Selector.GetRandomItemFromList(values) : values[index];
             }
             return result;
         }
@@ -113,14 +106,11 @@ namespace Faker.Random
             {
                 return this.fakerDictionary[name];
             }
-            else
-            {
-                // If it is the first time, create the FakerBase and add it to the dictionary
-                Type t = Assembly.GetExecutingAssembly().GetType("Faker." + name);
-                FakerBase faker = Activator.CreateInstance(t, new object[] { this.localeType }) as FakerBase;
-                this.fakerDictionary.Add(name, faker);
-                return faker;
-            }
+            // If it is the first time, create the FakerBase and add it to the dictionary
+            Type t = Assembly.GetExecutingAssembly().GetType("Faker." + name);
+            FakerBase faker = Activator.CreateInstance(t, this.localeType) as FakerBase;
+            this.fakerDictionary.Add(name, faker);
+            return faker;
         }
 
         private T GetRandomItemFromMethod<T>(string methodName, FakerBase obj)

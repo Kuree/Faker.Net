@@ -1,56 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Faker.Locales;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using Faker.Random;
 
 namespace Faker
 {
     public class Name : FakerBase
     {
         public Name() : this(LocaleType.en) { }
-        public Name(LocaleType type) : base(type) { this.factory = new Random.RandomFactory(this.locale, this.LocaleType); }
+        public Name(LocaleType type) : base(type) { this.factory = new RandomFactory(this.locale, this.LocaleType); }
 
         // default static interface
         public static Name Default { get { return defaultValue; } }
         private static Name defaultValue = new Name();
 
-        private Random.RandomFactory factory;
+        private RandomFactory factory;
 
         public virtual string GetLastName()
         {
             if (locale.FemaleLastName != null && locale.MaleLastName != null)
             {
-                if (Random.RandomProxy.NextBool())
-                    return Random.Selector.GetRandomItemFromList<string>(locale.FemaleLastName);
-                else
-                    return Random.Selector.GetRandomItemFromList<string>(locale.MaleLastName);
+                if (RandomProxy.NextBool())
+                    return Selector.GetRandomItemFromList(locale.FemaleLastName);
+                return Selector.GetRandomItemFromList(locale.MaleLastName);
             }
-            return Random.Selector.GetRandomItemFromList<string>(locale.LastName);
+            return Selector.GetRandomItemFromList(locale.LastName);
         }
 
         public virtual string GetFirstName()
         {
             if (locale.FemaleFirstName != null && locale.MaleFirstName != null)
             {
-                if (Random.RandomProxy.NextBool())
-                    return Random.Selector.GetRandomItemFromList<string>(locale.FemaleFirstName);
-                else
-                    return Random.Selector.GetRandomItemFromList<string>(locale.MaleFirstName);
+                if (RandomProxy.NextBool())
+                    return Selector.GetRandomItemFromList(locale.FemaleFirstName);
+                return Selector.GetRandomItemFromList(locale.MaleFirstName);
             }
-            return Random.Selector.GetRandomItemFromList<string>(locale.FirstName);
+            return Selector.GetRandomItemFromList(locale.FirstName);
         }
 
         internal virtual string GetNameSuffix()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.NameSuffix);
+            return Selector.GetRandomItemFromList(locale.NameSuffix);
         }
 
         internal virtual string GetNamePrefix()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.NamePrefix);
+            return Selector.GetRandomItemFromList(locale.NamePrefix);
         }
 
         public virtual string GetName() { return this.GetName("", ""); }
@@ -74,11 +67,8 @@ namespace Faker
             {
                 return factory.Next<string>(removeNameFormat(firstName, lastName, defaultFormat));
             }
-            else
-            {
-                return factory.Next<string>(removeNameFormat(firstName, lastName, Random.Selector.GetRandomItemFromList<string>
-                    (locale.NameFormat))); ;
-            }
+            return factory.Next<string>(removeNameFormat(firstName, lastName, Selector.GetRandomItemFromList
+                (locale.NameFormat))); ;
         }
     }
 }

@@ -1,46 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Faker.Locales;
+﻿using Faker.Random;
 
 namespace Faker
 {
     public class Company : FakerBase
     {
         public Company() : this(LocaleType.en) { }
-        public Company(LocaleType type) : base(type) { this.factory = new Random.RandomFactory(this.locale, this.LocaleType); }
+        public Company(LocaleType type) : base(type) { this.factory = new RandomFactory(this.locale, this.LocaleType); }
 
         // default static interface
         public static Company Default { get { return defaultValue; } }
         private static Company defaultValue = new Company();
 
-        private Random.RandomFactory factory;
+        private RandomFactory factory;
 
         public string GetCompanyName()
         {
-            return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.CompanyNameFormat));
+            return factory.Next<string>(Selector.GetRandomItemFromList(locale.CompanyNameFormat));
         }
 
         public string GetCompanySuffix()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.CompanySuffix);
+            return Selector.GetRandomItemFromList(locale.CompanySuffix);
         }
 
         public string GetCatchPhraseAdjective()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.CompanyAdjective);
+            return Selector.GetRandomItemFromList(locale.CompanyAdjective);
         }
 
         public string GetCatchPhraseDescriptor()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.CompanyDescriptor);
+            return Selector.GetRandomItemFromList(locale.CompanyDescriptor);
         }
 
         public string GetCatchPhraseNoun()
         {
-            return Random.Selector.GetRandomItemFromList<string>(locale.CompanyNoun);
+            return Selector.GetRandomItemFromList(locale.CompanyNoun);
         }
 
         public string GetCatchPhase()

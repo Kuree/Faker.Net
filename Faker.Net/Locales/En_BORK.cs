@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.en_BORK)]
+    [Locale(LocaleType.en_BORK)]
     internal class En_BORK : En
     {
         public override string[] LoremWord
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "Boot",
                                     "I",
                                     "Nu",

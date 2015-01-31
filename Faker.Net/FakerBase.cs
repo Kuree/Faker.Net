@@ -1,9 +1,4 @@
 ﻿using Faker.Locales;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Faker
 {
@@ -11,7 +6,7 @@ namespace Faker
     {
         private LocaleType localType;
         public LocaleType LocaleType { get { return this.localType; } set { if (this.localType != value) { this.locale = LocaleFactory.Create(value); this.localType = value; } } }
-        internal Locales.Locale locale;
+        internal Locale locale;
         
         public FakerBase() : this(LocaleType.en) { }
 

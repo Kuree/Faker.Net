@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.ko)]
+    [Locale(LocaleType.ko)]
     internal class Ko : En
     {
         public override string Title { get { return "Korean"; } }
@@ -15,7 +10,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { "###-###"
+                return new[] { "###-###"
                                      };
             }
         }
@@ -24,7 +19,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { "강원",
+                return new[] { "강원",
                                     "경기",
                                     "경남",
                                     "경북",
@@ -48,7 +43,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { "강원",
+                return new[] { "강원",
                                     "경기",
                                     "경남",
                                     "경북",
@@ -72,7 +67,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {  "구",
+                return new[] {  "구",
                                     "시",
                                     "군"};
             }
@@ -82,7 +77,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[]{
+                return new[]{
                                     "강릉",
                                     "양양",
                                     "인제",
@@ -119,7 +114,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { "#{CityName}#{CitySuffix}"
+                return new[] { "#{CityName}#{CitySuffix}"
                                          };
             }
         }
@@ -128,7 +123,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[]{
+                return new[]{
                     "상계",
                     "화곡",
                     "신정",
@@ -165,7 +160,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { "읍",
+                return new[] { "읍",
                                     "면",
                                     "동"
                                          };
@@ -176,7 +171,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                     "#{StreetRoot}#{StreetSuffix}"
                                          };
             }
@@ -196,7 +191,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "0#-#####-####",
                                     "0##-###-####",
                                     "0##-####-####"
@@ -210,7 +205,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                      "연구소",
                                     "게임즈",
                                     "그룹",
@@ -225,7 +220,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[]{
+                return new[]{
                     "주식회사",
                     "한국"
                 };
@@ -236,7 +231,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[]{
+                return new[]{
                 "#{CompanyPrefix} @{Name.GetFirstName}",
                 "@{Name.GetLastName} #{CompanySuffix}"};
             }
@@ -248,7 +243,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                      "gmail.com",
                                     "yahoo.co.kr",
                                     "hanmail.net",
@@ -261,7 +256,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "co.kr",
                                     "com",
                                     "biz",
@@ -280,7 +275,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "국가는",
                                 "법률이",
                                 "정하는",
@@ -419,7 +414,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "서연",
                                     "민서",
                                     "서현",
@@ -449,7 +444,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "김",
                                     "이",
                                     "박",
@@ -478,7 +473,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { "@{Name.GetLastName} @{Name.GetFirstName}" };
+                return new[] { "@{Name.GetLastName} @{Name.GetFirstName}" };
             }
         }
         #endregion

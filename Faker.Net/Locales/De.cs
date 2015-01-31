@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.de)]
+    [Locale(LocaleType.de)]
     internal class De : En
     {
         public override string Title { get { return "German"; } }
@@ -15,7 +10,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Nord",
                                     "Ost",
                                     "West",
@@ -31,7 +26,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "stadt",
                                 "dorf",
                                 "land",
@@ -45,7 +40,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "Ägypten",
                                 "Äquatorialguinea",
                                 "Äthiopien",
@@ -291,7 +286,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "Ackerweg",
                                     "Adalbert-Stifter-Str.",
                                     "Adalbertstr.",
@@ -1331,7 +1326,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "###",
                                 "##",
                                 "#",
@@ -1346,7 +1341,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "Apt. ###",
                                 "Zimmer ###",
                                 "# OG"            
@@ -1359,7 +1354,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "#####"           
                 };
             }   
@@ -1369,7 +1364,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "Baden-Württemberg",
                                 "Bayern",
                                 "Berlin",
@@ -1394,7 +1389,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "BW",
                                 "BY",
                                 "BE",
@@ -1419,7 +1414,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "#{CityPrefix} #{Name.GetFirstName}#{CitySuffix}",
                                 "#{CityPrefix} #{Name.GetFirstName}",
                                 "#{Name.GetFirstName}#{CitySuffix}",
@@ -1432,7 +1427,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                "#{StreetRoot}"          
                 };
             }   
@@ -1442,7 +1437,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { "@{Address.GetStreetName} #{BuildingNumberFormat}" };
+                return new[] { "@{Address.GetStreetName} #{BuildingNumberFormat}" };
             }
         }
 
@@ -1460,7 +1455,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "GmbH",
                                 "AG",
                                 "Gruppe",
@@ -1476,7 +1471,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "#{Name.GetLastName} #{CompanySuffix}",
                                 "#{Name.GetLastName}-#{Name.GetLastName}",
                                 "#{Name.GetLastName}, #{Name.GetLastName} und #{Name.GetLastName}"
@@ -1490,7 +1485,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "com",
                                 "info",
                                 "name",
@@ -1508,7 +1503,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "alias",
                                 "consequatur",
                                 "aut",
@@ -1768,7 +1763,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "Aaron",
                                 "Abdul",
                                 "Abdullah",
@@ -2932,7 +2927,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "Abel",
                                 "Abicht",
                                 "Abraham",
@@ -4630,7 +4625,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                 "Hr.",
                                 "Fr.",
                                 "Dr.",
@@ -4643,11 +4638,11 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "zu",
                                     "von",
                                     "vom",
-                                    "von der",
+                                    "von der"
                 };
             } 
         }
@@ -4656,10 +4651,10 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "{0.8}{FirstName} {LastName}",
                                     "#{NamePrefix} @{Name.GetFirstName} @{Name.GetLastName}",
-                                    "@{Name.GetFirstName} #{NobilityTitlePrefix} @{Name.GetLastName}",
+                                    "@{Name.GetFirstName} #{NobilityTitlePrefix} @{Name.GetLastName}"
                 };
             } 
         }
@@ -4668,11 +4663,11 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "(0###) #########",
                                     "(0####) #######",
                                     "+49-###-#######",
-                                    "+49-####-########",
+                                    "+49-####-########"
                 };
             } 
         }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Faker.Locales;
 
 namespace Faker
 {
@@ -9,7 +6,7 @@ namespace Faker
     {
         public static LocaleType[] GetAvailableLocaleTypes()
         {
-            return Faker.Locales.LocaleFactory.GetAvailableLocales();
+            return LocaleFactory.GetAvailableLocales();
         }
     }
 }

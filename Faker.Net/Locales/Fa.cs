@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.fa)]
+    [Locale(LocaleType.fa)]
     internal class Fa : En
     {
         public override string Title { get { return "Farsi"; } }
@@ -15,7 +10,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "آبان دخت",
                                     "آبتین",
                                     "آتوسا",
@@ -746,7 +741,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "عارف",
                                     "عاشوری",
                                     "عالی",
@@ -899,7 +894,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "آقای",
                                     "خانم",
                                     "دکتر"            
@@ -911,9 +906,9 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "{0.8}{FirstName} {LastName}",
-                                    "#{NamePrefix} @{Name.GetFirstName} @{Name.GetLastName}",         
+                                    "#{NamePrefix} @{Name.GetFirstName} @{Name.GetLastName}"         
                 };
             }
         }

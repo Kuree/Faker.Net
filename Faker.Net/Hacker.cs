@@ -1,32 +1,28 @@
-﻿using Faker.Locales;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Faker.Random;
 
 namespace Faker
 {
     public class Hacker : FakerBase
     {
         public Hacker() : this(LocaleType.en) { }
-        public Hacker(LocaleType type) : base(type) { this.factory = new Random.RandomFactory(this.locale, this.LocaleType); }
+        public Hacker(LocaleType type) : base(type) { this.factory = new RandomFactory(this.locale, this.LocaleType); }
 
         // default static interface
         public static Hacker Default { get { return defaultValue; } }
         private static Hacker defaultValue = new Hacker();
 
-        private Random.RandomFactory factory;
+        private RandomFactory factory;
 
-        public string HackerNoun() { return Random.Selector.GetRandomItemFromList<string>(locale.HackerNoun); }
+        public string HackerNoun() { return Selector.GetRandomItemFromList(locale.HackerNoun); }
 
-        public string HackerVerb() { return Random.Selector.GetRandomItemFromList<string>(locale.HackerVerb); }
+        public string HackerVerb() { return Selector.GetRandomItemFromList(locale.HackerVerb); }
 
-        public string HackerAdjective() { return Random.Selector.GetRandomItemFromList<string>(locale.HackerAdjective); }
+        public string HackerAdjective() { return Selector.GetRandomItemFromList(locale.HackerAdjective); }
 
-        public string HackerAbbreviation() { return Random.Selector.GetRandomItemFromList<string>(locale.HackerAbbreviation); }
+        public string HackerAbbreviation() { return Selector.GetRandomItemFromList(locale.HackerAbbreviation); }
 
-        public string HackerIngVerb() { return Random.Selector.GetRandomItemFromList<string>(locale.HackerIngVerb); }
+        public string HackerIngVerb() { return Selector.GetRandomItemFromList(locale.HackerIngVerb); }
 
-        public string HackerPhrase() { return factory.Next<string>(Random.Selector.GetRandomItemFromList<string>(locale.HackerPhraseFormat)); }
+        public string HackerPhrase() { return factory.Next<string>(Selector.GetRandomItemFromList(locale.HackerPhraseFormat)); }
     }
 }

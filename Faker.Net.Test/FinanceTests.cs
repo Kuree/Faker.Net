@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Faker;
+﻿using System.Linq;
+using Faker.Locales;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace Faker.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class FinanceTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void GetCurrencyCodeTest()
         {
             var key = Finance.Default.GetCurrencyName();
-            Locales.En en = new Locales.En();
+            En en = new En();
             Assert.IsTrue(en.Currency.Keys.Contains(key));
         }
     }

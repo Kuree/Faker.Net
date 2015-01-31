@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.ja)]
+    [Locale(LocaleType.ja)]
     internal class Ja : En
     {
         public override string Title { get { return "Japanese"; } }
@@ -15,7 +10,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                      "###-####"
                 };
             }
@@ -25,7 +20,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "北海道",
                                     "青森県",
                                     "岩手県",
@@ -81,7 +76,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "1",
                                     "2",
                                     "3",
@@ -137,7 +132,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "北",
                                     "東",
                                     "西",
@@ -153,7 +148,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "市",
                                     "区",
                                     "町",
@@ -166,7 +161,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                     "#{CityPrefix}@{Name.GetLastName}#{CitySuffix}",
                                     "@{Name.GetFirstName}#{CitySuffix}",
                                     "#{CityPrefix}@{Name.GetLastName}#{CitySuffix}",
@@ -179,7 +174,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                      "@{Name.GetLastName}#{StreetSuffix}",
                                      "@{Name.GetLastName}#{StreetSuffix}"
                 };
@@ -200,7 +195,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                    "0####-#-####",
                                     "0###-##-####",
                                     "0##-###-####",
@@ -215,7 +210,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                      "佐藤",
                                     "鈴木",
                                     "高橋",
@@ -244,7 +239,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                    "大翔",
                                     "蓮",
                                     "颯太",
@@ -274,7 +269,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] { 
+                return new[] { 
                                    "@{Name.GetLastName} @{Name.GetFirstName}"
                 };
             }

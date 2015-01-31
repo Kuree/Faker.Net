@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Faker.Locales
+﻿namespace Faker.Locales
 {
-    [LocaleAttribute(Faker.LocaleType.en_CA)]
+    [Locale(LocaleType.en_CA)]
     internal class En_CA : En
     {
         public override string[] PostCode
@@ -22,7 +17,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "Alberta",
                                 "British Columbia",
                                 "Manitoba",
@@ -43,7 +38,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                     "AB",
                                     "BC",
                                     "MB",
@@ -64,7 +59,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "ca",
                                 "com",
                                 "biz",
@@ -79,7 +74,7 @@ namespace Faker.Locales
         {
             get
             {
-                return new string[] {
+                return new[] {
                                 "###-###-####",
                                 "(###)###-####",
                                 "###.###.####",
