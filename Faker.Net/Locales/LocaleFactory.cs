@@ -19,12 +19,14 @@ namespace Faker.Locales
                     }
                 }
             }
+
             return null;
         }
 
         internal static LocaleType[] GetAvailableLocales()
         {
             List<LocaleType> list = new List<LocaleType>();
+
             foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
             {
                 if (type.BaseType == typeof(En) || type.BaseType == typeof(Locale))
@@ -36,6 +38,7 @@ namespace Faker.Locales
                     }
                 }
             }
+
             return list.ToArray();
         }
     }

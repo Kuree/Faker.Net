@@ -7,7 +7,6 @@ namespace Faker.Random
         private static System.Random random = new System.Random();
         public static int CurrentValue { get; private set; }
 
-
         public static int Next(int maxValue)
         {
             var r = random.Next(maxValue);
