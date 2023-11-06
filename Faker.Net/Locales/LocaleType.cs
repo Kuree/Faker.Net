@@ -23,7 +23,7 @@ namespace Faker
         ko,
         nb_NO,
         nep,
-        nl,
+        nl_BE,
         pl,
         pt_BR,
         ru,
@@ -37,11 +37,11 @@ namespace Faker
 
 namespace Faker.Locales
 {
-
     [AttributeUsage(AttributeTargets.Class)]
     internal class LocaleAttribute : Attribute
     {
         public LocaleType LocaleType { get; private set; }
+
         public LocaleAttribute(LocaleType type)
         {
             this.LocaleType = type;
